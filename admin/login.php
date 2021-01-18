@@ -86,7 +86,7 @@
 					console.log(err)
 			$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
 
-				},
+		},
 
 				// if success to login
 				success:function(resp){
