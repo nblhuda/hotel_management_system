@@ -1,3 +1,5 @@
+<!-- room page -->
+
 <?php
 $date_in = isset($_POST['date_in']) ? $_POST['date_in'] : date('Y-m-d');
 $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtotime(date('Y-m-d').' + 3 days'));
@@ -25,11 +27,11 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 									<form action="index.php?page=list" id="filter" method="POST">
 			        					<div class="row">
 			        						<div class="col-md-3">
-			        							<label for="">Chech-in Date</label>
+			        							<label for="">Check-in Date</label>
 			        							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off" value="<?php echo isset($date_in) ? date("Y-m-d",strtotime($date_in)) : "" ?>">
 			        						</div>
 			        						<div class="col-md-3">
-			        							<label for="">Chech-out Date</label>
+			        							<label for="">Check-out Date</label>
 			        							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off" value="<?php echo isset($date_out) ? date("Y-m-d",strtotime($date_out)) : "" ?>">
 			        						</div>
 			        						<div class="col-md-3">
@@ -46,7 +48,8 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 						
 						<?php 
 						
-						 $cat = $conn->query("SELECT * FROM room_categories");
+						// select data from room categories
+						$cat = $conn->query("SELECT * FROM room_categories");
 						$cat_arr = array();
 						while($row = $cat->fetch_assoc()){
 							$cat_arr[$row['id']] = $row;
@@ -84,6 +87,7 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
     width: 23vw;
 }
 </style>
+
 <script>
 	$('.book_now').click(function(){
 		uni_modal('Book','admin/book.php?in=<?php echo $date_in ?>&out=<?php echo $date_out ?>&cid='+$(this).attr('data-id'))

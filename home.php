@@ -9,11 +9,11 @@
                     				<form action="index.php?page=list" id="filter" method="POST">
                     					<div class="row">
                     						<div class="col-md-3">
-                    							<label for="">Chech-in Date</label>
+                    							<label for="">Check-in Date</label>
                     							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off">
                     						</div>
                     						<div class="col-md-3">
-                    							<label for="">Chech-out Date</label>
+                    							<label for="">Check-out Date</label>
                     							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off">
                     						</div>
                     						
@@ -31,14 +31,15 @@
                     
                 </div>
             </div>
-        </header>
-	<section class="page-section">
-        </section>
+		</header>
+		
+	<section class="page-section"></section>
 	<div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
                 	<?php 
-                	include'admin/db_connect.php';
+					include'admin/db_connect.php';
+					// select data from room categories table
                 	$qry = $conn->query("SELECT * FROM  room_categories order by rand() ");
                 	while($row = $qry->fetch_assoc()):
                 	?>

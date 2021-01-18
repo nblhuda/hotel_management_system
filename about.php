@@ -17,10 +17,12 @@
 
             
         </div>
-        <div style="color: #E94256;border-bottom-style:solid;border-width:1px;width:60%;margin: auto;"></div>
+        
+        <div style="color: #E94256;border-bottom-style:solid;border-width:2px;width:60%;margin: auto;"></div>
 
                 <table>
                 <td style="padding:50px;">
+                <!-- disply video from yotube -->
                     <iframe width="800" height="400" src="https://www.youtube.com/embed/kph5wOQzSEY"></iframe>
                 </td>
                 <td style="padding-right:50px;padding-top:50px;">
