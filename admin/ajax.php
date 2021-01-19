@@ -59,6 +59,16 @@
 		if($save)
 			echo $save;
 	}
+	if($action == "save_facility"){
+		$save = $crud->save_facility();
+		if($save)
+			echo $save;
+	}
+	if($action == "delete_facility"){
+		$save = $crud->delete_facility();
+		if($save)
+			echo $save;
+	}
 
 ?>
 

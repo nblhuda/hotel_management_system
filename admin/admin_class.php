@@ -130,6 +130,33 @@ Class Action {
 			return 1;
 	}
 
+	// insert the facilities data to the database [facilities]
+	function save_facility(){
+		extract($_POST);
+		$data = " name = '$name' ";
+		$data .= ", status = '$status' ";
+		if($_FILES['img']['tmp_name'] != ''){
+			$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
+			$move = move_uploaded_file($_FILES['img']['tmp_name'],'../assets/img/'. $fname);
+		$data .= ", cover_img = '$fname' ";
+		}
+		if(empty($id)){
+			$save = $this->db->query("INSERT INTO facilities set ".$data);
+		}else{
+			$save = $this->db->query("UPDATE facilities set ".$data." where id=".$id);
+		}
+		if($save)
+			return 1;
+	}
+
+	// delete the data from database [facilities]
+	function delete_facility(){
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM facilities where id = ".$id);
+		if($delete)
+			return 1;
+	}}
+	
 	function save_check_in(){
 		extract($_POST);
 		$data = " room_id = '$rid' ";
@@ -168,7 +195,6 @@ Class Action {
 				$this->db->query("UPDATE rooms set status = 0 where id=".$rid);
 						return 1;
 			}
-
 	}
 	function save_book(){
 		extract($_POST);
@@ -192,8 +218,9 @@ Class Action {
 			$id=$this->db->insert_id;
 		
 		if($save){
-					return $id;
+			return $id;
 		}
 	}
 
-}
+
+	

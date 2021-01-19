@@ -70,7 +70,7 @@
 			</div>
     	</div>
 	</body>
-
+	
 	<!-- js function -->
 	<script>
 		$('#login-form').submit(function(e){
