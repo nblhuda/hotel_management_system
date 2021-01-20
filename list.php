@@ -19,7 +19,6 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
         </header>
 
 <section class="page-section bg-dark">
-		
 		<div class="container">	
 				<div class="col-lg-12">	
 						<div class="card">
