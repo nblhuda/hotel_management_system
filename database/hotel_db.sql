@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Sep 19, 2020 at 10:41 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,18 +32,6 @@ CREATE TABLE `checked` (
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `checked`
---
-
-INSERT INTO `checked` (`id`, `ref_no`, `room_id`, `name`, `contact_no`, `date_in`, `date_out`, `booked_cid`, `status`, `date_updated`) VALUES
-(4, '0000\n', 1, 'John Smith', '+14526-5455-44', '2020-09-19 11:48:09', '2020-09-22 11:48:09', 0, 2, '2020-09-19 13:11:34'),
-(5, '9564082520\n', 1, 'John Smith', '+14526-5455-44', '2020-09-19 11:48:33', '2020-09-22 11:48:33', 0, 2, '2020-09-19 13:12:19'),
-(6, '2765813481\n', 1, 'asdasd asdas as', '8747808787', '2020-09-19 13:16:00', '2020-09-24 13:16:00', 0, 2, '2020-09-19 13:43:21'),
-(7, '4392831400\n', 3, 'Sample', '5205525544', '2020-09-19 13:00:00', '2020-09-23 13:00:00', 0, 2, '2020-09-19 16:00:55'),
-(10, '6479004224\n', 1, 'John Smith', '+14526-5455-44', '2020-09-23 10:31:00', '2020-09-29 10:31:00', 3, 1, '2020-09-19 16:39:59');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `rooms`
@@ -64,14 +44,6 @@ CREATE TABLE `rooms` (
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 = Available , 1= Unvailables'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `rooms`
---
-
-INSERT INTO `rooms` (`id`, `room`, `category_id`, `status`) VALUES
-(1, 'Room-101', 3, 1),
-(3, 'Room-102', 2, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -82,18 +54,14 @@ CREATE TABLE `room_categories` (
   `id` int(30) NOT NULL,
   `name` text NOT NULL,
   `price` float NOT NULL,
-  `cover_img` text NOT NULL
+  `cover_img` text NOT NULL,
+  `adult` int(30) NOT NULL,
+  `kid` int(30) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `room_categories`
 --
-
-INSERT INTO `room_categories` (`id`, `name`, `price`, `cover_img`) VALUES
-(2, 'Deluxe Room', 500, '1600480260_4.jpg'),
-(3, 'Single Room', 120, '1600480680_2.jpg'),
-(4, 'Family Room', 350, '1600480680_room-1.jpg'),
-(6, 'Twin Bed Room', 200, '1600482780_3.jpg');
 
 -- --------------------------------------------------------
 
