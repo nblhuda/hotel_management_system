@@ -92,12 +92,12 @@
 									<?php if($row['status'] == 0): ?>
 										<td class="text-center"><span class="badge badge-success">Available</span></td>
 									<?php else: ?>
-										<td class="text-center"><span class="badge badge-default">Unavailable</span></td>
+										<td class="text-center"><span class="badge badge-secondary">Unavailable</span></td>
 									<?php endif; ?>
 
 									<td class="text-center">
 										<!-- edit button -->
-										<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-price="<?php echo $row['price'] ?>" data-cover_img="<?php echo $row['cover_img'] ?>">Edit</button>
+										<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-status="<?php echo $row['status'] ?>" data-cover_img="<?php echo $row['cover_img'] ?>">Edit</button>
 										<!-- delete button -->
 										<button class="btn btn-sm btn-danger delete_cat" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>

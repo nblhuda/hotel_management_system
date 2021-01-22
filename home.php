@@ -21,14 +21,12 @@
                     							<br>
                     							<button class="btn-btn-block btn-primary mt-3">Check Availability</button>
                     						</div>
-
                     					</div>
                     				</form>
                     			</div>
                     		</div>
                     	</div>
                     </div>
-                    
                 </div>
             </div>
 		</header>
@@ -53,7 +51,6 @@
                         </a>
                     </div>
                 	<?php endwhile; ?>
-
                 </div>
             </div>
         </div>

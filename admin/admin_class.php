@@ -89,6 +89,8 @@ Class Action {
 		extract($_POST);
 		$data = " name = '$name' ";
 		$data .= ", price = '$price' ";
+		$data .= ", adult = '$adult' ";
+		$data .= ", kid = '$kid' ";
 		if($_FILES['img']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
 						$move = move_uploaded_file($_FILES['img']['tmp_name'],'../assets/img/'. $fname);
@@ -162,19 +164,19 @@ Class Action {
 		$data = " room_id = '$rid' ";
 		$data .= ", name = '$name' ";
 		$data .= ", contact_no = '$contact' ";
-		$data .= ", status = 1 ";
-
 		$data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
 		$out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
 		$data .= ", date_out = '$out' ";
+		
+		$data .= ", status = '$status' ";
 		$i = 1;
 		while($i== 1){
-			$ref  = sprintf("%'.04d\n",mt_rand(1,9999999999));
+		$ref  = sprintf("%'.04d\n",mt_rand(1,9999999999));
 			if($this->db->query("SELECT * FROM checked where ref_no ='$ref'")->num_rows <= 0)
 				$i=0;
 		}
 		$data .= ", ref_no = '$ref' ";
-
+		
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO checked set ".$data);
 			$id=$this->db->insert_id;

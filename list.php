@@ -44,7 +44,6 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 						</div>	
 
 						<hr>	
-						
 						<?php 
 						
 						// select data from room categories
@@ -69,8 +68,10 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 									<h4><b>
 										<?php echo $cat_arr[$row['category_id']]['name'] ?>
 									</b></h4>
+
 									<div class="align-self-end mt-5">
-										<button class="btn btn-primary  float-right book_now" type="button" data-id="<?php echo $row['category_id'] ?>">Book now</button>
+										<a style = "margin-left:580px;" href = "index.php?page=available" class = "btn btn-primary float-right" type="button"><i class = "glyphicon glyphicon-list"></i> Reserve</a>
+
 									</div>
 								</div>
 							</div>

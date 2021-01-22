@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 			$meta[$k]=$v;
 		}
 	}
-	$calc_days = abs(strtotime($meta['date_out']) - strtotime($meta['date_in'])) ; 
+$calc_days = abs(strtotime($meta['date_out']) - strtotime($meta['date_in'])) ; 
  $calc_days =floor($calc_days / (60*60*24)  );
  $cat = $conn->query("SELECT * FROM room_categories");
 $cat_arr = array();
@@ -62,22 +62,43 @@ while($row = $cat->fetch_assoc()){
 			<label for="days">Days of Stay</label>
 			<input type="number" min ="1" name="days" id="days" class="form-control" value="<?php echo isset($meta['date_in']) ? $calc_days: 1 ?>" required>
 		</div>
+		<div class="card-footer">
+			<div class="row">
+				<div class="col-md-12">
+					<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Save</button>
+					<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="$('#manage-check').get(0).reset()"> Cancel</button>
+				</div>
+			</div>
+		</div>
 	</form>
 </div>
+<!-- js function -->
 <script>
+	
+	// save the data to database function
 	$('#manage-check').submit(function(e){
-		e.preventDefault();
+		e.preventDefault()
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=save_check-in',
-			method:'POST',
-			data:$(this).serialize(),
+			url:'ajax.php?action=save_check_in',
+			data: new FormData($(this)[0]),
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    method: 'POST',
+		    type: 'POST',
 			success:function(resp){
-				if(resp >0){
-					alert_toast("Data successfully saved",'success')
-					uni_modal("Check-in Details","manage_check_out.php?id="+resp)
+				if(resp==1){
+					alert_toast("Data successfully added",'success')
 					setTimeout(function(){
-					end_load()
+						location.reload()
+					},1500)
+
+				}
+				else if(resp==2){
+					alert_toast("Data successfully updated",'success')
+					setTimeout(function(){
+						location.reload()
 					},1500)
 				}
 			}

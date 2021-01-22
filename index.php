@@ -34,6 +34,8 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=list">Rooms</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=facilities">Facilities</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=team">Our Team</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=feedback">Feedback</a></li>
                     </ul>
                 </div>
             </div>

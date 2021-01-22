@@ -25,6 +25,18 @@
 									<input type="number" class="form-control text-right" name="price" step="any">
 								</div>
 
+								<!-- Adult -->
+								<div class="form-group">
+									<label class="control-label">Adult</label>
+									<input type="number" class="form-control text-right" name="adult">
+								</div>
+
+								<!-- Kids -->
+								<div class="form-group">
+									<label class="control-label">Kids</label>
+									<input type="number" class="form-control text-right" name="kid">
+								</div>
+
 								<!-- image -->
 								<div class="form-group">
 									<label for="" class="control-label">Image</label>
@@ -81,13 +93,17 @@
 										<img src="<?php echo isset($row['cover_img']) ? '../assets/img/'.$row['cover_img'] :'' ?>" alt="" id="cimg">
 									</td>
 									<td class="">
-										<p>Name : <b><?php echo $row['name'] ?></b></p>
-										<p>Price : <b><?php echo "RM".number_format($row['price'],2) ?></b></p>
+										<p>
+											Name : <b><?php echo $row['name'] ?></b><br>
+											Price : <b><?php echo "RM".number_format($row['price'],2) ?></b><br>
+											Adult : <b><?php echo $row['adult'] ?></b><br>
+											Kids : <b><?php echo $row['kid'] ?></b>
+										</p>
 									</td>
 
 									<td class="text-center">
 										<!-- edit button -->
-										<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-price="<?php echo $row['price'] ?>" data-cover_img="<?php echo $row['cover_img'] ?>">Edit</button>
+										<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-price="<?php echo $row['price'] ?>" data-cover_img="<?php echo $row['cover_img'] ?>" data-adult="<?php echo $row['adult'] ?>" data-kid="<?php echo $row['kid'] ?>">Edit</button>
 										<!-- delete button -->
 										<button class="btn btn-sm btn-danger delete_cat" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
@@ -162,6 +178,8 @@
 		cat.find("[name='id']").val($(this).attr('data-id'))
 		cat.find("[name='name']").val($(this).attr('data-name'))
 		cat.find("[name='price']").val($(this).attr('data-price'))
+		cat.find("[name='adult']").val($(this).attr('data-adult'))
+		cat.find("[name='kid']").val($(this).attr('data-kid'))
 		cat.find("#cimg").attr('src','../assets/img/'+$(this).attr('data-cover_img'))
 		end_load()
 	})
