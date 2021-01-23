@@ -9,19 +9,27 @@ if(isset($_GET['id'])){
 			$meta[$k]=$v;
 		}
 	}
-$calc_days = abs(strtotime($meta['date_out']) - strtotime($meta['date_in'])) ; 
- $calc_days =floor($calc_days / (60*60*24)  );
- $cat = $conn->query("SELECT * FROM room_categories");
-$cat_arr = array();
-while($row = $cat->fetch_assoc()){
-	$cat_arr[$row['id']] = $row;
-}
+	$calc_days = abs(strtotime($meta['date_out']) - strtotime($meta['date_in'])) ; 
+ 	$calc_days =floor($calc_days / (60*60*24)  );
+ 	$cat = $conn->query("SELECT * FROM room_categories");
+	$cat_arr = array();
+	while($row = $cat->fetch_assoc()){
+		$cat_arr[$row['id']] = $row;
+	}
 }
 ?>
+<style>
+	.container-fluid p{
+		margin: unset
+	}
+	#uni_modal .modal-footer{
+		display: none;
+	}
+</style>
 <div class="container-fluid">
 	
 	<form action="" id="manage-check">
-		<input type="hidden" name="id" value="<?php echo isset($meta['id']) ? $meta['id']: '' ?>">
+		<input type="hidden" name="id" id="" value="<?php echo isset($_GET['id']) ? $_GET['id']: '' ?>">
 		<?php if(isset($_GET['id'])):
 			$rooms = $conn->query("SELECT * FROM rooms where status =0 or id = $rid order by id asc");
 		 ?>
@@ -40,33 +48,38 @@ while($row = $cat->fetch_assoc()){
 		<?php else: ?>
 		<input type="hidden" name="rid" value="<?php echo isset($_GET['rid']) ? $_GET['rid']: '' ?>">
 		<?php endif; ?>
-
-
 		<div class="form-group">
 			<label for="name">Name</label>
 			<input type="text" name="name" id="name" class="form-control" value="<?php echo isset($meta['name']) ? $meta['name']: '' ?>" required>
 		</div>
 		<div class="form-group">
-			<label for="contact">Contact #</label>
-			<input type="text" name="contact" id="contact" class="form-control" value="<?php echo isset($meta['contact_no']) ? $meta['contact_no']: '' ?>" required>
+			<label for="contact_no">Contact #</label>
+			<input type="text" name="contact_no" id="contact_no" class="form-control" value="<?php echo isset($meta['contact_no']) ? $meta['contact_no']: '' ?>" required>
 		</div>
 		<div class="form-group">
 			<label for="date_in">Check-in Date</label>
 			<input type="date" name="date_in" id="date_in" class="form-control" value="<?php echo isset($meta['date_in']) ? date("Y-m-d",strtotime($meta['date_in'])): date("Y-m-d") ?>" required>
 		</div>
 		<div class="form-group">
-			<label for="date_in_time">Check-in Date</label>
+			<label for="date_in_time">Check-in Time</label>
 			<input type="time" name="date_in_time" id="date_in_time" class="form-control" value="<?php echo isset($meta['date_in']) ? date("H:i",strtotime($meta['date_in'])): date("H:i") ?>" required>
 		</div>
 		<div class="form-group">
 			<label for="days">Days of Stay</label>
 			<input type="number" min ="1" name="days" id="days" class="form-control" value="<?php echo isset($meta['date_in']) ? $calc_days: 1 ?>" required>
 		</div>
+		<div class="form-group">
+			<label for="status" class="control-label">Status</label>
+			<select class="custom-select browser-default" name="status" id="status">
+				<option value="0">Booking</option>
+				<option value="1">Check-In</option>
+			</select>			
+		</div>
 		<div class="card-footer">
 			<div class="row">
 				<div class="col-md-12">
 					<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Save</button>
-					<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="$('#manage-check').get(0).reset()"> Cancel</button>
+					<button class="btn btn-sm btn-default col-sm-3" type="button" data-dismiss="modal" onclick="$('#manage-check').get(0).reset()"> Cancel</button>
 				</div>
 			</div>
 		</div>
@@ -78,29 +91,24 @@ while($row = $cat->fetch_assoc()){
 	// save the data to database function
 	$('#manage-check').submit(function(e){
 		e.preventDefault()
-		start_load()
+		start_load()		
 		$.ajax({
-			url:'ajax.php?action=save_check_in',
+			url:'admin/ajax.php?action=save_check',
 			data: new FormData($(this)[0]),
 		    cache: false,
 		    contentType: false,
 		    processData: false,
 		    method: 'POST',
 		    type: 'POST',
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully added",'success')
-					setTimeout(function(){
-						location.reload()
-					},1500)
-
-				}
-				else if(resp==2){
+			success:function(resp){	
+				console.log(resp)
+				if(resp>0)
+				{
 					alert_toast("Data successfully updated",'success')
 					setTimeout(function(){
 						location.reload()
-					},1500)
-				}
+					},1500)	
+				}												
 			}
 		})
 	})

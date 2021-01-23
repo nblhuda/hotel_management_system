@@ -33,7 +33,7 @@ while($row = $room->fetch_assoc()){
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="text-center"><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
-									<td class=""><?php echo $row['ref_no'] ?></td>
+									<td class=""><?php echo $row['name'] ?></td>
 										<td class="text-center"><span class="badge badge-warning">Booked</span></td>
 									<td class="text-center">
 											<button class="btn btn-sm btn-primary check_out" type="button" data-id="<?php echo $row['id'] ?>">View</button>
@@ -52,7 +52,7 @@ while($row = $room->fetch_assoc()){
 <script>
 	$('table').dataTable()
 	$('.check_out').click(function(){
-		uni_modal("Check Out","manage_check_out.php?checkout=1&id="+$(this).attr("data-id"))
+		uni_modal("Check In","manage_check_out.php?checkout=1&id="+$(this).attr("data-id"))
 	})
 	$('#filter').submit(function(e){
 		e.preventDefault()

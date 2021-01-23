@@ -157,37 +157,36 @@ Class Action {
 		$delete = $this->db->query("DELETE FROM facilities where id = ".$id);
 		if($delete)
 			return 1;
-	}}
+	}
 	
-	function save_check_in(){
+	function save_check_in(){		
 		extract($_POST);
 		$data = " room_id = '$rid' ";
 		$data .= ", name = '$name' ";
-		$data .= ", contact_no = '$contact' ";
+		$data .= ", contact_no = '$contact_no' ";
 		$data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
 		$out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
-		$data .= ", date_out = '$out' ";
-		
+		$data .= ", date_out = '$out' ";		
 		$data .= ", status = '$status' ";
-		$i = 1;
-		while($i== 1){
-		$ref  = sprintf("%'.04d\n",mt_rand(1,9999999999));
-			if($this->db->query("SELECT * FROM checked where ref_no ='$ref'")->num_rows <= 0)
-				$i=0;
-		}
-		$data .= ", ref_no = '$ref' ";
-		
+
 		if(empty($id)){
-			$save = $this->db->query("INSERT INTO checked set ".$data);
-			$id=$this->db->insert_id;
+			$save = $this->db->query("INSERT INTO checked set ".$data);			
+			$id=$this->db->insert_id;						
 		}else{
 			$save = $this->db->query("UPDATE checked set ".$data." where id=".$id);
 		}
 		if($save){
-
-			$this->db->query("UPDATE rooms set status = 1 where id=".$rid);
-					return $id;
+			$this->db->query("UPDATE rooms set status = 1 where id=".$rid);			
+			return $id;
 		}
+	}
+
+	function save_checkin(){
+		extract($_POST);
+			$save = $this->db->query("UPDATE checked set status = 1 where id=".$id);
+			if($save){
+				return 1;
+			}
 	}
 	function save_checkout(){
 		extract($_POST);
@@ -198,6 +197,7 @@ Class Action {
 						return 1;
 			}
 	}
+
 	function save_book(){
 		extract($_POST);
 		$data = " booked_cid = '$cid' ";
@@ -223,6 +223,4 @@ Class Action {
 			return $id;
 		}
 	}
-
-
-	
+}	

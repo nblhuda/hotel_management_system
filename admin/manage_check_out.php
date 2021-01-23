@@ -31,7 +31,6 @@ if($_GET['id']){
 	<p><b>Room : </b><?php echo isset($room['room']) ? $room['room'] : 'NA' ?></p>
 	<p><b>Room Category : </b><?php echo $cat['name'] ?></p>
 	<p><b>Room Price : </b><?php echo 'RM'.number_format($cat['price'],2) ?></p>
-	<p><b>Reference no : </b><?php echo $ref_no ?></p>
 	<p><b>Checked In : </b><?php echo $name ?></p>
 	<p><b>Contact no : </b><?php echo $contact_no ?></p>
 	<p><b>Check-in Date/Time : </b><?php echo date("M d, Y h:i A",strtotime($date_in)) ?></p>
@@ -40,13 +39,20 @@ if($_GET['id']){
 	<p><b>Amount (Price * Days) : </b><?php echo 'RM'.number_format($cat['price'] * $calc_days ,2) ?></p>
 	
 		<div class="row">
-			<?php if(isset($_GET['checkout']) && $status != 2): ?>
+			<?php if(isset($_GET['checkout']) && $status == 0): ?>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-primary" id="checkin">Checkin</button>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-primary" id="edit_checkin">Edit</button>
+				</div>
+			<?php elseif(isset($_GET['checkout']) && $status == 1): ?>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-primary" id="checkout">Checkout</button>
 				</div>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-primary" id="edit_checkin">Edit</button>
-				</div>
+				</div>				
 		<?php endif; ?>	
 				<div class="col-md-3">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -65,6 +71,22 @@ if($_GET['id']){
 		start_load()
 		$.ajax({
 			url:'ajax.php?action=save_checkout',
+			method:'POST',
+			data:{id:'<?php echo $id ?>',rid:'<?php echo $room_id ?>'},
+			success:function(resp){
+				if(resp ==1){
+					alert_toast("Data successfully saved",'success')
+					setTimeout(function(){
+						location.reload()
+					},1500)
+				}
+			}
+		})
+	})
+	$('#checkin').click(function(){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=save_checkin',
 			method:'POST',
 			data:{id:'<?php echo $id ?>',rid:'<?php echo $room_id ?>'},
 			success:function(resp){

@@ -52,7 +52,7 @@
 								    <a class="dropdown-item delete_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
 								  </div>
 								</div>
-								</center>
+						</center>
 				 	</td>
 				 </tr>
 				<?php endwhile; ?>

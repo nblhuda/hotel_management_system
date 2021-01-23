@@ -1,25 +1,18 @@
 
-<!-- Masthead-->
-<header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center text-center">
-            <div class="col-lg-10 align-self-end mb-4" style="background: #0000002e;">
-                 <h1 class="text-uppercase text-white font-weight-bold">Our Team</h1>
-                <hr class="divider my-4" />
-            </div>
-        </div>
-    </div>
-</header>
-
-
-
 <html>
 <head>
     <style>
-  body {
-        background-image: url(Background4.jpg);
+        .page-body{
+            margin: 0;
+            padding: 50px 0;
+            background-image: url(Background4.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+  body {        
         height: auto;
-
+        margin : 0;
         /* Center and scale the image nicely */
         background-position: center;
         background-repeat: no-repeat;
@@ -105,12 +98,24 @@
 
 </style>
 <title> Members Profile </title>
-
-
 </head>
 
+
 <body>
-    <h1> RendahTecc Hotel Partnership </h1>
+<!-- Masthead-->
+<header class="masthead" style="display : block">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end mb-4" style="background: #0000002e;">
+                 <h1 class="text-uppercase text-white font-weight-bold">Our Team</h1>
+                <hr class="divider my-4" />
+            </div>
+        </div>
+    </div>
+</header>
+<div class="page-body">
+
+<h1> RendahTecc Hotel Partnership </h1>
     <div class="row">
         <div class="column">
             <div class="card">
@@ -176,5 +181,6 @@
             </div>
         </div>
     </div>
+</div>    
 </body>
 </html>

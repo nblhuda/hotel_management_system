@@ -68,7 +68,7 @@
 									<td class=""><?php echo $row['room'] ?></td>
 									<?php if($row['status'] == 0): ?>
 										<td class="text-center"><span class="badge badge-success">Available</span></td>
-									<?php else: ?>
+									<?php elseif($row['status'] == 1): ?>
 										<td class="text-center"><span class="badge badge-default">Unavailable</span></td>
 									<?php endif; ?>
 									<td class="text-center">

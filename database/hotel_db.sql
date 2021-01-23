@@ -9,6 +9,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+CREATE DATABASE hotel_db;
+USE hotel_db;
 --
 -- Database: `hotel_db`
 --
@@ -56,7 +58,7 @@ CREATE TABLE `room_categories` (
   `price` float NOT NULL,
   `cover_img` text NOT NULL,
   `adult` int(30) NOT NULL,
-  `kid` int(30) NOT NULL,
+  `kid` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

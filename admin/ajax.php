@@ -44,11 +44,18 @@
 		if($save)
 			echo $save;
 	}
-	if($action == "save_check-in"){
+	if($action == 'save_check'){
 		$save = $crud->save_check_in();
 		if($save)
 			echo $save;
 	}
+
+	if($action == 'save_checkin'){
+		$save = $crud->save_checkin();
+		if($save)
+			echo $save;
+	}
+	
 	if($action == "save_checkout"){
 		$save = $crud->save_checkout();
 		if($save)

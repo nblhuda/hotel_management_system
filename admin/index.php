@@ -93,9 +93,10 @@
         success:function(resp){
             if(resp){
                 $('#uni_modal .modal-title').html($title)
+                console.log(resp)
                 $('#uni_modal .modal-body').html(resp)
-                $('#uni_modal').modal('show')
-                end_load()
+                $('#uni_modal').modal('show')            
+                end_load()                
             }
         }
     })
