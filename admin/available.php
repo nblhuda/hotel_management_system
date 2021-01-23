@@ -29,7 +29,7 @@ $cid = $_GET['cid'];
 						<td class="text-center"><?php echo $i++ ?></td>
 						<td class="text-center"><?php echo $row['room']?></td>
 						<td class="text-center">
-							<button id="manager" class="btn btn-sm btn-primary check_in" type="button" data-id="<?php echo $row['id'] ?>">Book Now</button>
+							<button class="btn btn-sm btn-primary manager" type="button" data-id="<?php echo $row['id'] ?>">Book Now</button>
 						</td>
 					</tr>
 					<?php endwhile; ?>
@@ -40,7 +40,7 @@ $cid = $_GET['cid'];
 </div>
 
 <script>
-	$('#manager').click(function(){
+	$('.manager').click(function(){
 		uni_modal("Check-In","admin/manage_check_in.php?rid="+$(this).attr("data-id"))
 	})
 </script>

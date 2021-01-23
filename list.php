@@ -66,11 +66,10 @@
 							<h4><b><?php echo $cat_arr[$row['category_id']]['name'] ?></b></h4>
 
 							<div class="align-self-end mt-5">
-								<a id="reservation" style = "margin-left:580px;" class = "btn btn-primary float-right" type="button" data-id="<?php echo $cat_arr[$row['category_id']]['id'] ?>"><i class = "glyphicon glyphicon-list"></i> Reserve</a>
+								<a style = "margin-left:580px;" class = "btn btn-primary float-right reservation" type="button" data-id="<?php echo $cat_arr[$row['category_id']]['id'] ?>"><i class = "glyphicon glyphicon-list"></i> Reserve</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 			<?php endwhile; ?>
@@ -84,7 +83,7 @@
 </style>
 
 <script>
-	$('#reservation').click(function(){
+	$('.reservation').click(function(){
 		uni_modal("Available Room","admin/available.php?cid="+$(this).attr("data-id"))
 	})
 </script>
