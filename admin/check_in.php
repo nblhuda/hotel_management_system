@@ -72,7 +72,7 @@
 										<td class="text-center"><span class="badge badge-default">Unavailable</span></td>
 									<?php endif; ?>
 									<td class="text-center">
-											<button class="btn btn-sm btn-primary check_in" type="button" data-id="<?php echo $row['id'] ?>">Check-in</button>
+										<button class="btn btn-sm btn-primary check_in" type="button" data-id="<?php echo $row['id'] ?>">Check-in</button>
 									</td>
 								</tr>
 							<?php endwhile; ?>

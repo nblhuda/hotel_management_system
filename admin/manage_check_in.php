@@ -93,7 +93,7 @@ if(isset($_GET['id'])){
 		e.preventDefault()
 		start_load()		
 		$.ajax({
-			url:'admin/ajax.php?action=save_check',
+			url:'ajax.php?action=save_check',
 			data: new FormData($(this)[0]),
 		    cache: false,
 		    contentType: false,
