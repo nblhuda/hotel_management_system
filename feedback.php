@@ -101,7 +101,12 @@
             <h2 style="color:white; text-align:center">FEEDBACK FORM</h2>    
             <div class="container1"> 
             <form  action="" id="manage-feedback" >    
-                <div class="row">   
+
+                <div class="row">
+                    Please help us to serve you better by taking a couple of minutes.   <br><br>
+                </div>
+
+                <div class="row" style="color:#5756CE">
                     How satisfied were you with our Service?   
                 </div>
                 <div class="row">    
@@ -121,13 +126,13 @@
                     </div>    
                 </div>    
 
-                <div class="row">   
+                <div class="row" style="color:#5756CE">   
                         If you have specific feedback, please write to us...
                 </div>
                 <div class="row">   
                     <div class="col-25">   
                  
-                    <label for="feedback">Feed Back</label>    
+                    <label for="feedback">Feedback</label>    
                 </div>    
                 <div class="col-75">    
                     <textarea id="subject" name="feedback" placeholder="Write something.." style="height:200px"></textarea>    

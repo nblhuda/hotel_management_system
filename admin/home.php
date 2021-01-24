@@ -78,6 +78,19 @@
     	right: 0;
     	bottom: -.4em;
 	}
+	.col-25 {    
+    float: left;    
+    width: 30%;    
+	margin-top: 6px;  
+	text-align:center;  
+    }    
+        
+    /* Clear floats after the columns */    
+    .row:after {    
+    content: "";    
+    display: table;    
+    clear: both;    
+    }    
 </style>
 
 <div class="containe-fluid">
@@ -85,8 +98,9 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="card col-md-4 offset-2 bg-info float-left">
+				 <!--COUNT ROOM THAT IS BOOKED status = 0-->
 				<div class="card-body text-white">
-					<h4><b>On-Booking</b></h4> <!--COUNT ROOM THAT IS BOOKED status = 0-->
+					<h4><b>On-Booking</b></h4>
 					<hr>
 					<span class="card-icon"><i class="fa fa-users"></i></span>
 					<?php 
@@ -97,9 +111,11 @@
 					<?php } ?>
 				</div>
 			</div>
+
+			 <!--COUNT ROOM THAT IS VACANT status = 1-->
 			<div class="card col-md-4 offset-2 bg-primary ml-4 float-left">
 				<div class="card-body text-white">
-					<h4><b>Checked-In</b></h4> <!--COUNT ROOM THAT IS VACANT status = 1-->
+					<h4><b>Checked-In</b></h4>
 					<hr>
 					<span class="card-icon"><i class="fa fa-user-tie"></i></span>
 					<?php 
@@ -117,16 +133,108 @@
 			<div class="col-lg-12">
 			<div class="card">
 				<div class="card-body">
-<?php //var_dump($_SESSION)  ?>
-									
+					Customer Statistics	
+					<div class="row">   
+						<div class="col-25">   
+							<label>Pending</label>    
+							<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status = 0");
+								while($count = $cat->fetch_assoc()){
+							?>
+							<h3><b> <?php echo $count['count'] ?> </b></h3>
+							<?php } ?>
+                		</div>    
+                		<div class="col-25">    
+							<label>Check-in</label> 
+							<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status = 1");
+								while($count = $cat->fetch_assoc()){
+							?>
+							<h3><b> <?php echo $count['count'] ?> </b></h3>
+							<?php } ?>
+                		</div> 
+						<div class="col-25">    
+							<label>Check-out</label>    
+							<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status = 2");
+								while($count = $cat->fetch_assoc()){
+							?>
+							<h3><b> <?php echo $count['count'] ?> </b></h3>
+							<?php } ?>
+                		</div> 
+						
+						   
+                	</div>  			
+					<br><br>					
+					<div class="row">   
+						<div class="col-25">   
+							<i class="fa fa-users fa-4x" aria-hidden="true"></i> 
+                		</div> 
+						<div class="col-25">  
+						<label>Total Customers</label>    
+							<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM checked ");
+								while($count = $cat->fetch_assoc()){
+							?>
+							<h3><b> <?php echo $count['count'] ?> </b></h3>
+							<?php } ?>
+						</div>
+					</div>
+					<br><br>
+					<table class="table table-bordered">
+						<thead>
+							<th>#</th>
+							<th>About</th>
+							<th>Total</th>
+						</thead>
+						<tbody>
+							<?php 
+								$i = 1;
+								$where = '';
+							?>
+							<tr>
+								<td class="text-center"><?php echo $i++ ?></td>
+								<td>Room Category</td>
+								<td>
+								<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM room_categories ");
+									while($count = $cat->fetch_assoc()){
+								?>
+								<h5><?php echo $count['count'] ?></h5>
+								<?php } ?>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="text-center"><?php echo $i++ ?></td>
+								<td>Rooms</td>
+								<td>
+								<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM rooms ");
+									while($count = $cat->fetch_assoc()){
+								?>
+								<h5><?php echo $count['count'] ?></h5>
+								<?php } ?>
+								</td>
+							</tr>
+
+							
+							<tr>
+								<td class="text-center"><?php echo $i++ ?></td>
+								<td>Facilities</td>
+								<td>
+								<?php 
+								$cat = $conn->query("SELECT COUNT(id) as count FROM facilities ");
+									while($count = $cat->fetch_assoc()){
+								?>
+								<h5><?php echo $count['count'] ?></h5>
+								<?php } ?>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
-			
-		</div>
 		</div>
 	</div>
-
 </div>
-<script>
-	
-</script>
