@@ -64,7 +64,6 @@
 							<h3><b><?php echo 'RM '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
 
 							<h4><b><?php echo $cat_arr[$row['category_id']]['name'] ?></b></h4>
-
 							<div class="align-self-end mt-5">
 								<a style = "margin-left:580px;" class = "btn btn-primary float-right reservation" type="button" data-id="<?php echo $cat_arr[$row['category_id']]['id'] ?>"><i class = "glyphicon glyphicon-list"></i> Reserve</a>
 							</div>
@@ -73,6 +72,17 @@
 				</div>
 			</div>
 			<?php endwhile; ?>
+			<?php 
+				$sql = $conn->query("SELECT COUNT('id') as count FROM rooms where status = 0");
+				while($count = $sql->fetch_assoc()){
+					if($count['count'] == 0){
+			?>
+			<div class="card item-rooms mb-3">
+				<div class="card-body">
+					<h4 class="text-center">SORRY. NO ROOM AVAILABLE AT THIS MOMENT</h4>
+				</div>
+			</div>
+			<?php }}?>			
 		</div>	
 	</div>	
 </section>

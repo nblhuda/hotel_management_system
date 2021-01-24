@@ -41,6 +41,6 @@ $cid = $_GET['cid'];
 
 <script>
 	$('.manager').click(function(){
-		uni_modal("Check-In","admin/manage_check_in.php?rid="+$(this).attr("data-id"))
+		uni_modal("Check-In","admin/manage_check_in_user.php?rid="+$(this).attr("data-id"))
 	})
 </script>
