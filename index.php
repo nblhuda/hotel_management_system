@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <title>Home | RendahTecc Hotel</title>
+  <title>RendahTecc Hotel</title>
 
   <?php
     session_start();

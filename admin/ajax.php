@@ -76,6 +76,10 @@
 		if($save)
 			echo $save;
 	}
-
+	if($action == "save_feedback"){
+		$save = $crud->save_feedback();
+		if($save)
+			echo $save;
+	}
 ?>
 

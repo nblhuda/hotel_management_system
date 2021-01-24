@@ -223,4 +223,17 @@ Class Action {
 			return $id;
 		}
 	}
+
+	function save_feedback(){
+		extract($_POST);
+		$data = " rate = '$rate' ";
+		$data .= ", feedback = '$feedback' ";
+		if(empty($id)){
+			$save = $this->db->query("INSERT INTO feedback set ".$data);
+		}else{
+			$save = $this->db->query("UPDATE feedback set ".$data." where id=".$id);
+		}
+		if($save)
+			return 1;
+	}
 }	

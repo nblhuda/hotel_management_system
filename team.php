@@ -97,7 +97,6 @@
         }
 
 </style>
-<title> Members Profile </title>
 </head>
 
 
