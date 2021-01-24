@@ -28,15 +28,53 @@ if($_GET['id']){
 	}
 </style>
 <div class="container-fluid">
-	<p><b>Room : </b><?php echo isset($room['room']) ? $room['room'] : 'NA' ?></p>
-	<p><b>Room Category : </b><?php echo $cat['name'] ?></p>
-	<p><b>Room Price : </b><?php echo 'RM'.number_format($cat['price'],2) ?></p>
-	<p><b>Checked In : </b><?php echo $name ?></p>
-	<p><b>Contact no : </b><?php echo $contact_no ?></p>
-	<p><b>Check-in Date/Time : </b><?php echo date("M d, Y h:i A",strtotime($date_in)) ?></p>
-	<p><b>Check-out Date/Time : </b><?php echo date("M d, Y h:i A",strtotime($date_out)) ?></p>
-	<p><b>Days : </b><?php echo $calc_days ?></p>
-	<p><b>Amount (Price * Days) : </b><?php echo 'RM'.number_format($cat['price'] * $calc_days ,2) ?></p>
+	<table>
+		<tr>
+			<td><b>Name</b></td>
+			<td><?php echo $name ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Room</b></td>
+			<td><?php echo isset($room['room']) ? $room['room'] : 'NA' ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Room Category</b></td>
+			<td><?php echo $cat['name'] ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Room Price [per day]</b></td>
+			<td><?php echo 'RM'.number_format($cat['price'],2) ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Contact no</b></td>
+			<td><?php echo $contact_no ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Check-in Date/Time</b></td>
+			<td><?php echo date("M d, Y h:i A",strtotime($date_in)) ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Check-out Date/Time</b></td>
+			<td><?php echo date("M d, Y h:i A",strtotime($date_out)) ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Days</b></td>
+			<td><?php echo $calc_days ?></td>
+		</tr>
+
+		<tr>
+			<td><b>Amount (Price * Days)</b></td>
+			<td><?php echo 'RM'.number_format($cat['price'] * $calc_days ,2) ?></td>
+		</tr>
+	
+	</table>
 	
 		<div class="row">
 			<?php if(isset($_GET['checkout']) && $status == 0): ?>
