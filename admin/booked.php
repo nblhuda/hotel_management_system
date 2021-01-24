@@ -32,7 +32,7 @@ while($row = $room->fetch_assoc()){
 								?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
-									<td class="text-center"><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
+									<td><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
 									<td class=""><?php echo $row['name'] ?></td>
 										<td class="text-center"><span class="badge badge-warning">Booked</span></td>
 									<td class="text-center">

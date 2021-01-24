@@ -21,6 +21,7 @@ while($row = $room->fetch_assoc()){
 								<th>#</th>
 								<th>Category</th>
 								<th>Room</th>
+								<th>Reference</th>
 								<th>Status</th>
 								<th>Action</th>
 							</thead>
@@ -32,8 +33,9 @@ while($row = $room->fetch_assoc()){
 								?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
-									<td class="text-center"><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
+									<td><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
 									<td class=""><?php echo $room_arr[$row['room_id']]['room'] ?></td>
+									<td><?php echo $row['name'] ?></td>
 									<?php if($row['status'] == 1): ?>
 										<td class="text-center"><span class="badge badge-warning">Checked-In</span></td>
 									<?php else: ?>

@@ -79,7 +79,7 @@
 			?>
 			<div class="card item-rooms mb-3">
 				<div class="card-body">
-					<h4 class="text-center">SORRY. NO ROOM AVAILABLE AT THIS MOMENT</h4>
+					<h4 class="text-center" style="color:red"><i><b>SORRY. NO ROOM AVAILABLE AT THIS MOMENT<b><i></h4>
 				</div>
 			</div>
 			<?php }}?>			
