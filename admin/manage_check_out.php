@@ -41,17 +41,17 @@ if($_GET['id']){
 		<div class="row">
 			<?php if(isset($_GET['checkout']) && $status == 0): ?>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" id="checkin">Checkin</button>
+					<button type="button" class="btn btn-primary checkin" >Checkin</button>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" id="edit_checkin">Edit</button>
+					<button type="button" class="btn btn-primary edit_checkin" >Edit</button>
 				</div>
 			<?php elseif(isset($_GET['checkout']) && $status == 1): ?>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" id="checkout">Checkout</button>
+					<button type="button" class="btn btn-primary checkout" >Checkout</button>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" id="edit_checkin">Edit</button>
+					<button type="button" class="btn btn-primary edit_checkin" >Edit</button>
 				</div>				
 		<?php endif; ?>	
 				<div class="col-md-3">
@@ -64,10 +64,10 @@ if($_GET['id']){
 	$(document).ready(function(){
 		
 	})
-	$('#edit_checkin').click(function(){
+	$('.edit_checkin').click(function(){
 		uni_modal("Edit Check In","manage_check_in.php?id=<?php echo $id ?>&rid=<?php echo $room_id ?>")
 	})
-	$('#checkout').click(function(){
+	$('.checkout').click(function(){
 		start_load()
 		$.ajax({
 			url:'ajax.php?action=save_checkout',
@@ -83,7 +83,7 @@ if($_GET['id']){
 			}
 		})
 	})
-	$('#checkin').click(function(){
+	$('.checkin').click(function(){
 		start_load()
 		$.ajax({
 			url:'ajax.php?action=save_checkin',
