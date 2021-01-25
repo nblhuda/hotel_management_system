@@ -77,13 +77,7 @@
     	position: absolute;
     	right: 0;
     	bottom: -.4em;
-	}
-	.col-25 {    
-    float: left;    
-    width: 30%;    
-	margin-top: 6px;  
-	text-align:center;  
-    }    
+	}    
         
     /* Clear floats after the columns */    
     .row:after {    
@@ -128,50 +122,50 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="row mt-3 ml-3 mr-3">
-			<div class="col-lg-12">
+	<!--CUSTOMER STATISTIC-->	
+	<div class="row mt-3 ml-3 mr-3">		
+		<div class="col-lg-12">
+			Customer Statistic
 			<div class="card">
-				<div class="card-body">
-					Customer Statistics	
-					<div class="row">   
-						<div class="col-25">   
-							<label>Pending</label>    
+				<div class="card-body"><center>
+					<div class="row">
+						<div class="col-lg-4">
+							<br>
 							<?php 
 								$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status = 0");
 								while($count = $cat->fetch_assoc()){
 							?>
 							<h3><b> <?php echo $count['count'] ?> </b></h3>
 							<?php } ?>
-                		</div>    
-                		<div class="col-25">    
-							<label>Check-in</label> 
+							<label>Pending</label> 
+						</div>
+						<div class="col-lg-4">
+							<br>
 							<?php 
 								$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status = 1");
 								while($count = $cat->fetch_assoc()){
 							?>
 							<h3><b> <?php echo $count['count'] ?> </b></h3>
 							<?php } ?>
-                		</div> 
-						<div class="col-25">    
-							<label>Check-out</label>    
+							<label>Check-in</label>
+						</div>
+						<div class="col-lg-4">
+							<br>
 							<?php 
 								$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status = 2");
 								while($count = $cat->fetch_assoc()){
 							?>
 							<h3><b> <?php echo $count['count'] ?> </b></h3>
 							<?php } ?>
-                		</div> 
-						
-						   
-                	</div>  			
-					<br><br>					
-					<div class="row">   
-						<div class="col-25">   
-							<i class="fa fa-users fa-4x" aria-hidden="true"></i> 
-                		</div> 
-						<div class="col-25">  
-						<label>Total Customers</label>    
+							<label>Check-out</label>  
+						</div>
+					</div><br><br>
+					<div class="row">
+						<div class="col-lg-4">
+							<center><i class="fa fa-users fa-4x" aria-hidden="true"></i></center>
+						</div>
+						<div class="col-lg-4">
+							<label>Total Customers</label>    
 							<?php 
 								$cat = $conn->query("SELECT COUNT(id) as count FROM checked ");
 								while($count = $cat->fetch_assoc()){
@@ -179,62 +173,166 @@
 							<h3><b> <?php echo $count['count'] ?> </b></h3>
 							<?php } ?>
 						</div>
-					</div>
-					<br><br>
-					<table class="table table-bordered">
-						<thead>
-							<th>#</th>
-							<th>About</th>
-							<th>Total</th>
-						</thead>
-						<tbody>
-							<?php 
-								$i = 1;
-								$where = '';
-							?>
-							<tr>
-								<td class="text-center"><?php echo $i++ ?></td>
-								<td>Room Category</td>
-								<td>
-								<?php 
-								$cat = $conn->query("SELECT COUNT(id) as count FROM room_categories ");
-									while($count = $cat->fetch_assoc()){
-								?>
-								<h5><?php echo $count['count'] ?></h5>
-								<?php } ?>
-								</td>
-							</tr>
-
-							<tr>
-								<td class="text-center"><?php echo $i++ ?></td>
-								<td>Rooms</td>
-								<td>
-								<?php 
-								$cat = $conn->query("SELECT COUNT(id) as count FROM rooms ");
-									while($count = $cat->fetch_assoc()){
-								?>
-								<h5><?php echo $count['count'] ?></h5>
-								<?php } ?>
-								</td>
-							</tr>
-
-							
-							<tr>
-								<td class="text-center"><?php echo $i++ ?></td>
-								<td>Facilities</td>
-								<td>
-								<?php 
-								$cat = $conn->query("SELECT COUNT(id) as count FROM facilities ");
-									while($count = $cat->fetch_assoc()){
-								?>
-								<h5><?php echo $count['count'] ?></h5>
-								<?php } ?>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					</div></center>
 				</div>
 			</div>
-		</div>
+		</div>		
+		
 	</div>
+	<!--CUSTOMER STATISTIC END-->
+
+	<div class="row mt-3 ml-3 mr-3">		
+		<!--OVERVIEW-->		
+		<div class="col-md-12">
+			Overview<br>
+			<div class="row">
+				<!--CARD 1-->
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<?php 
+										$cat = $conn->query("SELECT COUNT(r.id) as count FROM rooms r JOIN room_categories c ON r.category_id =  c.id where c.name = 'Standard Single Room'");
+										while($count = $cat->fetch_assoc()){
+									?>
+									<h3><?php echo $count['count'] ?></h3>
+									<?php } ?>
+									<label>Standard Single</label>
+								</div>
+								<div class="col-lg-6">
+									<center>
+									<i class="fa fa-user fa-4x" aria-hidden="true"></i>
+									</center>								
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+				</div>
+				<!--CARD 1 END-->
+				<!--CARD 2-->
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<?php 
+										$cat = $conn->query("SELECT COUNT(r.id) as count FROM rooms r JOIN room_categories c ON r.category_id =  c.id where c.name = 'Standard Twin Room'");
+										while($count = $cat->fetch_assoc()){
+									?>
+									<h3><?php echo $count['count'] ?></h3>
+									<?php } ?>
+									<label>Standard Twin</label>
+								</div>
+								<div class="col-lg-6">
+									<center>
+									<i class="fa fa-user-friends fa-4x" aria-hidden="true"></i>
+									</center>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--CARD 2 END-->
+				<!--CARD 3-->
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<?php 
+										$cat = $conn->query("SELECT COUNT(r.id) as count FROM rooms r JOIN room_categories c ON r.category_id =  c.id where c.name = 'Deluxe Double Room'");
+										while($count = $cat->fetch_assoc()){
+									?>
+									<h3><?php echo $count['count'] ?></h3>
+									<?php } ?>
+									<label>Deluxe Double</label>
+								</div>
+								<div class="col-lg-6">
+									<center>
+									<i class="fa fa-heart fa-4x" aria-hidden="true"></i>
+									</center>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--CARD 3 END-->
+				<!--CARD 4-->
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<?php 
+										$cat = $conn->query("SELECT COUNT(r.id) as count FROM rooms r JOIN room_categories c ON r.category_id =  c.id where c.name = 'Deluxe Twin Room'");
+										while($count = $cat->fetch_assoc()){
+									?>
+									<h3><?php echo $count['count'] ?></h3>
+									<?php } ?>
+									<label>Deluxe Twin</label>
+								</div>
+								<div class="col-lg-6">
+									<center>
+									<i class="fa fa-suitcase fa-4x" aria-hidden="true"></i>
+									</center>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--CARD 4 END-->
+				<!--CARD 5-->
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<?php 
+										$cat = $conn->query("SELECT COUNT(r.id) as count FROM rooms r JOIN room_categories c ON r.category_id =  c.id where c.name = 'Family Suite'");
+										while($count = $cat->fetch_assoc()){
+									?>
+									<h3><?php echo $count['count'] ?></h3>
+									<?php } ?>
+									<label>Family Suite</label>
+								</div>
+								<div class="col-lg-6">
+									<center>
+									<i class="fa fa-crown fa-4x" aria-hidden="true"></i>
+									</center>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--CARD 5 END-->
+				<!--CARD 6-->
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<?php 
+										$cat = $conn->query("SELECT COUNT(id) as count FROM facilities ");
+										while($count = $cat->fetch_assoc()){
+									?>
+									<h3> <?php echo $count['count']?> </h3>
+									<?php } ?>
+									<label>Facilities</label>
+								</div>
+								<div class="col-lg-6">
+									<center>
+									<span style="color:black"><i class="fa fa-dumbbell fa-4x" aria-hidden="true"></i></span>
+									</center>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--CARD 6 END-->
+			</div>
+		</div>
+		<!--OVERVIEW END-->
+	</div>	
 </div>
