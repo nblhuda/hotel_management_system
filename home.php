@@ -34,7 +34,7 @@
 
 <!-- to display all the room categories available	 -->
 <div style="font-family: Bahnschrift;word-spacing: 15px;letter-spacing: 5px; text-align:center;padding-top:20px; font-size:50px; color:gray">
- 	Welcome To RendahTecc Hotel
+ 	<i>Welcome To RendahTecc Hotel</i>
 </div>
 <div id="portfolio">
     <div class="container-fluid p-0">

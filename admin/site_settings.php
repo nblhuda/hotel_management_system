@@ -17,12 +17,20 @@ if($qry->num_rows > 0){
 					<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($meta['hotel_name']) ? $meta['hotel_name'] : '' ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="email" class="control-label">Hotel email</label>
+					<label for="address" class="control-label">Hotel Address</label>
+					<input type="text" class="form-control" id="address" name="address" value="<?php echo isset($meta['hotel_address']) ? $meta['hotel_address'] : '' ?>" required>
+				</div>
+				<div class="form-group">
+					<label for="email" class="control-label">Hotel Email</label>
 					<input type="email" class="form-control" id="email" name="email" value="<?php echo isset($meta['email']) ? $meta['email'] : '' ?>" required>
 				</div>
 				<div class="form-group">
 					<label for="contact" class="control-label">Hotel Contact</label>
 					<input type="text" class="form-control" id="contact" name="contact" value="<?php echo isset($meta['contact']) ? $meta['contact'] : '' ?>" required>
+				</div>
+				<div class="form-group">
+					<label for="fax" class="control-label">Hotel Fax</label>
+					<input type="text" class="form-control" id="fax" name="fax" value="<?php echo isset($meta['fax']) ? $meta['fax'] : '' ?>" required>
 				</div>
 				<div class="form-group">
 					<label for="about" class="control-label">Hotel About Content</label>

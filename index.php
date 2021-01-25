@@ -19,7 +19,9 @@
 		  background: url(assets/img/<?php echo $_SESSION['setting_cover_img'] ?>);
 		  background-repeat: no-repeat;
 		  background-size: cover;
-		}
+    }
+    
+    
     </style>
     <body id="page-top">
         <!-- Navigation-->
@@ -69,7 +71,40 @@
 
         <!--  footer -->
         <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">RendahTecc Hotel Mangement system | For Educational Porpose Only</div></div>
+            <div class="container">
+              <div>
+                Contact Us <br><br>
+                <table>
+                  <?php echo html_entity_decode($_SESSION['setting_hotel_name']) ?>
+
+                  <tr>
+                    <td style="width:20%;">Address</td>
+                    <td style="color:red;"><?php echo html_entity_decode($_SESSION['setting_hotel_address']) ?></td>   
+                  </tr>
+
+
+                  <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:<?php echo html_entity_decode($_SESSION['setting_email']) ?>"><?php echo html_entity_decode($_SESSION['setting_email']) ?></a></td>
+                  </tr>
+
+                  <tr>
+                    <td>Phone</td>
+                    <td><a href="tel:<?php echo html_entity_decode($_SESSION['setting_contact']) ?>"><?php echo html_entity_decode($_SESSION['setting_contact']) ?></a></td>
+                  </tr>
+
+                  <tr>
+                    <td>Fax</td>
+                    <td style="color:red;"><?php echo html_entity_decode($_SESSION['setting_fax']) ?></td>   
+                  </tr>
+
+                </table>
+              </div>
+              <br>
+              <div class="small text-center text-muted">
+                <p>&copy; 2021 by RendahTecc Hotel Mangement System | For Educational Porpose Only</p>
+              </div>
+            </div>
         </footer>
         
        <?php include('footer.php') ?>

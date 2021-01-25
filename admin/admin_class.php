@@ -57,8 +57,10 @@ Class Action {
 	function save_settings(){
 		extract($_POST);
 		$data = " hotel_name = '$name' ";
+		$data .= ", hotel_address = '$address' ";
 		$data .= ", email = '$email' ";
 		$data .= ", contact = '$contact' ";
+		$data .= ", fax = '$fax' ";
 		$data .= ", about_content = '".htmlentities(str_replace("'","&#x2019;",$about))."' ";
 		if($_FILES['img']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
