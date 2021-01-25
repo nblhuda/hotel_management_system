@@ -10,29 +10,28 @@
     </div>
 </header>
 
-<section class="page-section"></section>
-	<div id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row no-gutters">
-                	<?php 
-					include'admin/db_connect.php';
-                    // select data from room facilities table
-                    // check the condition, it will display if status = 0
-                	$qry = $conn->query("SELECT * FROM  facilities where status = 0 ");
-                    while($row = $qry->fetch_assoc()):
+
+<!-- to display all available facilities -->
+<div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <?php 
+				include'admin/db_connect.php';
+                // select data from room facilities table
+                // check the condition, it will display if status = 0
+                $qry = $conn->query("SELECT * FROM  facilities where status = 0 ");
+                while($row = $qry->fetch_assoc()):
+            ?>
                     
-                    
-                	?>
-                    
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="#">
-                            <img class="img-fluid" src="assets/img/<?php echo $row['cover_img'] ?>" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-name"><?php echo $row['name'] ?></div>
-                            </div>
-                        </a>
+            <div class="col-lg-4 col-sm-6" style="padding:40px">
+                <a class="portfolio-box" href="#">
+                    <img class="img-fluid" src="assets/img/<?php echo $row['cover_img'] ?>" alt="" />
+                    <div class="portfolio-box-caption">
+                        <div class="project-name"><?php echo $row['name'] ?></div>
                     </div>
-                	<?php endwhile; ?>
-                </div>
+                </a>
             </div>
+            <?php endwhile; ?>
         </div>
+     </div>
+</div>
