@@ -176,7 +176,7 @@
 							<div class="col-lg-4">
 								<label>Total Customers</label>    
 								<?php 
-									$cat = $conn->query("SELECT COUNT(id) as count FROM checked ");
+									$cat = $conn->query("SELECT COUNT(id) as count FROM checked where status !=3 ");
 									while($count = $cat->fetch_assoc()){
 								?>
 								<h3><b> <?php echo $count['count'] ?> </b></h3>

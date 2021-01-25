@@ -17,7 +17,7 @@
 			<thead>
 				<tr>
 					<th class="text-center">#</th>
-					<th class="text-center">Name</th>
+					<th class="text-center">Department</th>
 					<th class="text-center">Username</th>
 					<th class="text-center">Action</th>
 				</tr>
@@ -33,7 +33,7 @@
 				 	<td class="text-center">
 				 		<?php echo $i++ ?>
 				 	</td>
-				 	<td class="text-center">
+				 	<td style="padding:10px">
 				 		<?php echo $row['name'] ?>
 				 	</td>
 				 	<td class="text-center">
@@ -49,7 +49,7 @@
 								  <div class="dropdown-menu">
 								    <a class="dropdown-item edit_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Edit</a>
 								    <div class="dropdown-divider"></div>
-								    <a class="dropdown-item delete_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
+								    <a class="dropdown-item delete_cat" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
 								  </div>
 								</div>
 						</center>
@@ -65,11 +65,32 @@
 </div>
 <script>
 	
-$('#new_user').click(function(){
-	uni_modal('New User','manage_user.php')
-})
-$('.edit_user').click(function(){
-	uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
-})
+	$('#new_user').click(function(){
+		uni_modal('New User','manage_user.php')
+	})
+	$('.edit_user').click(function(){
+		uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
+	})
+
+	$('.delete_cat').click(function(){
+		_conf("Are you sure to delete this user?","delete_cat",[$(this).attr('data-id')])
+	})
+		function delete_cat($id){
+			start_load()
+			$.ajax({
+				url:'ajax.php?action=delete_user',
+				method:'POST',
+				data:{id:$id},
+				success:function(resp){
+					if(resp==1){
+						alert_toast("User successfully deleted",'success')
+						setTimeout(function(){
+							location.reload()
+						},1500)
+
+					}
+				}
+			})
+		}
 
 </script>

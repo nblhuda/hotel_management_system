@@ -72,7 +72,6 @@ if(isset($_GET['id'])){
 			<label for="status" class="control-label">Status</label>
 			<select class="custom-select browser-default" name="status" id="status">
 				<option value="0">Booking</option>
-				<option value="1">Check-In</option>
 			</select>			
 		</div>
 		<div class="card-footer">
@@ -104,7 +103,7 @@ if(isset($_GET['id'])){
 				console.log(resp)
 				if(resp>0)
 				{
-					alert_toast("Data successfully updated",'success')
+					alert_toast("Booking successfully",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)	

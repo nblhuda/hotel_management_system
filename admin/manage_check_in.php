@@ -104,7 +104,7 @@ if(isset($_GET['id'])){
 				console.log(resp)
 				if(resp>0)
 				{
-					alert_toast("Data successfully updated",'success')
+					alert_toast("Booking completed",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)	

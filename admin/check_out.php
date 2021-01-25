@@ -23,12 +23,13 @@ while($row = $room->fetch_assoc()){
 								<th>Room</th>
 								<th>Reference</th>
 								<th>Status</th>
+								<th>Date & Time</th>
 								<th>Action</th>
 							</thead>
 							<tbody>
 								<?php 
 								$i = 1;
-								$checked = $conn->query("SELECT * FROM checked where status != 0 order by status desc, id asc ");
+								$checked = $conn->query("SELECT * FROM checked where status != 0 && status != 1 order by status desc, id asc ");
 								while($row=$checked->fetch_assoc()):
 								?>
 								<tr>
@@ -36,13 +37,12 @@ while($row = $room->fetch_assoc()){
 									<td ><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
 									<td class="text-center"><?php echo $room_arr[$row['room_id']]['room'] ?></td>
 									<td class="text-center"><?php echo $row['name'] ?></td>
-									<?php if($row['status'] == 1): ?>
-										<td class="text-center"><span class="badge badge-warning">Checked-In</span></td>
-									<?php elseif($row['status'] == 2): ?>
+									<?php if($row['status'] == 2): ?>
 										<td class="text-center"><span class="badge badge-success">Checked-Out</span></td>
 									<?php elseif($row['status'] == 3): ?>
 										<td class="text-center"><span class="badge badge-danger">Canceled</span></td>
 									<?php endif; ?>
+									<td class="text-center"><?php echo $row['date_updated'] ?></td>
 									<td class="text-center">
 											<button class="btn btn-sm btn-primary check_out" type="button" data-id="<?php echo $row['id'] ?>">View</button>
 									</td>

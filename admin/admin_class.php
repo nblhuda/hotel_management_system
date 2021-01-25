@@ -247,4 +247,12 @@ Class Action {
 		if($save)
 			return 1;
 	}
+
+	// delete the user from database [users]
+	function delete_user(){
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM users where id = ".$id);
+		if($delete)
+			return 1;
+	}
 }	

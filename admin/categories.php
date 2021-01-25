@@ -94,10 +94,10 @@
 									</td>
 									<td class="">
 										<p>
-											Name : <b><?php echo $row['name'] ?></b><br>
-											Price : <b><?php echo "RM".number_format($row['price'],2) ?></b><br>
-											Adult : <b><?php echo $row['adult'] ?></b><br>
-											Kids : <b><?php echo $row['kid'] ?></b>
+											<b>Name : </b><?php echo $row['name'] ?><br>
+											<b>Price  : </b><?php echo "RM".number_format($row['price'],2) ?><br>
+											<b>Adult : </b><?php echo $row['adult'] ?><br>
+											<b>Kids : </b><?php echo $row['kid'] ?>
 										</p>
 									</td>
 

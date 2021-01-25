@@ -86,5 +86,11 @@
 		if($save)
 			echo $save;
 	}
+
+	if($action == "delete_user"){
+		$save = $crud->delete_user();
+		if($save)
+			echo $save;
+	}
 ?>
 
