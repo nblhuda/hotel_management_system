@@ -199,6 +199,15 @@ Class Action {
 						return 1;
 			}
 	}
+	function cancel_check_in(){
+		extract($_POST);
+			$save = $this->db->query("UPDATE checked set status = 3 where id=".$id);
+			if($save){
+
+				$this->db->query("UPDATE rooms set status = 0 where id=".$rid);
+						return 1;
+			}
+	}
 
 	function save_book(){
 		extract($_POST);

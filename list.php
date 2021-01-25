@@ -44,15 +44,17 @@
 
 			<hr>	
 			<?php 
-						
-			// select data from room categories
-			$cat = $conn->query("SELECT * FROM room_categories");
-			$cat_arr = array();
-			while($row = $cat->fetch_assoc()){
-				$cat_arr[$row['id']] = $row;
-			}
-			$qry = $conn->query("SELECT distinct(category_id),category_id from rooms where id not in (SELECT room_id from checked where '$date_in' BETWEEN date(date_in) and date(date_out) and '$date_out' BETWEEN date(date_in) and date(date_out) or  status <> 2)");
-			while($row= $qry->fetch_assoc()):
+			$sql = $conn->query("SELECT COUNT('id') as count FROM rooms where status = 0");
+			while($counta = $sql->fetch_assoc()){
+				if($counta['count'] > 0){
+					// select data from room categories
+					$cat = $conn->query("SELECT * FROM room_categories");
+					$cat_arr = array();
+					while($row = $cat->fetch_assoc()){
+						$cat_arr[$row['id']] = $row;
+					}
+					$qry = $conn->query("SELECT distinct(category_id),category_id from rooms where status = 0 and id not in (SELECT room_id from checked where '$date_in' BETWEEN date(date_in) and date(date_out) and '$date_out' BETWEEN date(date_in) and date(date_out) or  status < 2)");
+					while($row= $qry->fetch_assoc()){
 			?>
 			<div class="card item-rooms mb-3">
 				<div class="card-body">
@@ -71,12 +73,8 @@
 					</div>
 				</div>
 			</div>
-			<?php endwhile; ?>
-			<?php 
-				$sql = $conn->query("SELECT COUNT('id') as count FROM rooms where status = 0");
-				while($count = $sql->fetch_assoc()){
-					if($count['count'] == 0){
-			?>
+			<?php }}
+				else{ ?>
 			<div class="card item-rooms mb-3">
 				<div class="card-body">
 					<h4 class="text-center" style="color:red"><i><b>SORRY. NO ROOM AVAILABLE AT THIS MOMENT<b><i></h4>

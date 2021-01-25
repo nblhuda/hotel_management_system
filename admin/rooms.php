@@ -83,7 +83,7 @@
 									<?php if($row['status'] == 0): ?>
 										<td class="text-center"><span class="badge badge-success">Available</span></td>
 									<?php else: ?>
-										<td class="text-center"><span class="badge badge-default">Unavailable</span></td>
+										<td class="text-center"><span class="badge badge-danger">Unavailable</span></td>
 									<?php endif; ?>
 									<td class="text-center">
 										<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-room="<?php echo $row['room'] ?>" data-category_id="<?php echo $row['category_id'] ?>" data-status="<?php echo $row['status'] ?>">Edit</button>

@@ -6,7 +6,7 @@
 				<div class="card">
 					<div class="card-body">
 						<table class="table table-bordered">
-							<thead>
+							<thead class="text-center">
 								<th>#</th>
                                 <th>Feedback</th>
                                 <th>Rate</th>
@@ -21,8 +21,8 @@
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td style="width:70%"><?php echo $row['feedback'] ?></td>
-									<td><?php echo $row['rate'] ?></td>
-									<td class=""><?php echo $row['date_updated'] ?></td>
+									<td  class="text-center"><?php echo $row['rate'] ?></td>
+									<td  class="text-center"><?php echo $row['date_updated'] ?></td>
 								</tr>
 							<?php endwhile; ?>
 							</tbody>

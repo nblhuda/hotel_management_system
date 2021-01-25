@@ -44,6 +44,11 @@
 		if($save)
 			echo $save;
 	}
+	if($action == 'cancel_checkin'){
+		$save = $crud->cancel_check_in();
+		if($save)
+			echo $save;
+	}
 	if($action == 'save_check'){
 		$save = $crud->save_check_in();
 		if($save)

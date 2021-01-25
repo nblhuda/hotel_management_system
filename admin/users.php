@@ -30,13 +30,13 @@
  					while($row= $users->fetch_assoc()):
 				 ?>
 				 <tr>
-				 	<td>
+				 	<td class="text-center">
 				 		<?php echo $i++ ?>
 				 	</td>
-				 	<td>
+				 	<td class="text-center">
 				 		<?php echo $row['name'] ?>
 				 	</td>
-				 	<td>
+				 	<td class="text-center">
 				 		<?php echo $row['username'] ?>
 				 	</td>
 				 	<td>
@@ -44,7 +44,7 @@
 								<div class="btn-group">
 								  <button type="button" class="btn btn-primary">Action</button>
 								  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								    <span class="sr-only">Toggle Dropdown</span>
+								   
 								  </button>
 								  <div class="dropdown-menu">
 								    <a class="dropdown-item edit_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Edit</a>

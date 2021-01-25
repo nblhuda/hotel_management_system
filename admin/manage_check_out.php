@@ -93,6 +93,9 @@ if($_GET['id']){
 				</div>				
 		<?php endif; ?>	
 				<div class="col-md-3">
+					<button type="button" class="btn btn-danger cancel_checkin" >Cancel</button>
+				</div>
+				<div class="col-md-3">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				</div>
 		
@@ -131,6 +134,24 @@ if($_GET['id']){
 				if(resp ==1){
 					alert_toast("Data successfully saved",'success')
 					setTimeout(function(){
+						location.reload()
+					},1500)
+				}
+			}
+		})
+	})
+	$('.cancel_checkin').click(function(){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=cancel_checkin',
+			method:'POST',
+			data:{id:'<?php echo $id ?>',rid:'<?php echo $room_id ?>'},
+			success:function(resp){
+				console.log(resp)
+				if(resp ==1){
+					alert_toast("Data successfully saved",'success')
+					setTimeout(function(){
+						
 						location.reload()
 					},1500)
 				}

@@ -115,13 +115,13 @@
                     </div> 
 
                     <div class="col-75">    
-                        <input type="radio" id="excellent" name="rate" value="Excellent">
+                        <input type="radio" id="excellent" name="rate" value="4">
                         <label for="excellent">Excellent</label><br>
-                        <input type="radio" id="good" name="rate" value="Good">
+                        <input type="radio" id="good" name="rate" value="3">
                         <label for="good">Good</label><br>
-                        <input type="radio" id="nuetral" name="rate" value="Neutral">
+                        <input type="radio" id="neutral" name="rate" value="2">
                         <label for="neutral">Neutral</label><br>
-                        <input type="radio" id="poor" name="rate" value="Poor">
+                        <input type="radio" id="poor" name="rate" value="1">
                         <label for="poor">Poor</label>
                     </div>    
                 </div>    
@@ -135,7 +135,7 @@
                     <label for="feedback">Feedback</label>    
                 </div>    
                 <div class="col-75">    
-                    <textarea id="subject" name="feedback" placeholder="Write something.." style="height:200px"></textarea>    
+                    <textarea id="feedback" name="feedback" placeholder="Write something.." style="height:200px"></textarea>    
                 </div>    
                 </div>    
                 <div class="row">    

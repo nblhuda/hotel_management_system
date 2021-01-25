@@ -21,6 +21,10 @@
       background-size: cover;
       
     }
+    .table{
+      margin: auto;
+      width: 50% ; 
+    }
     
     
     </style>
@@ -29,7 +33,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav"> 
             <div class="container">
             <img class="nav-link js-scroll-trigger" src="images/logo2.png" alt="RendahTecc Hotel" width="auto" height="70">
-                <b>RendahTecc Hotel System</b>
+            <ul class="navbar-nav ml-auto my-2 my-lg-0"><span class="nav-item"><b class="nav-link js-scroll-trigger" style="font-size:18px">RendahTecc Hotel System</b></span></ul>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -73,34 +77,38 @@
         <!--  footer -->
         <footer class="bg-light py-5">
             <div class="container">
-              <div>
-                Contact Us <br><br>
-                <table>
-                  <?php echo html_entity_decode($_SESSION['setting_hotel_name']) ?>
-
+              <center><div class="row">
+                <div class="col-lg-12">
+                <b>Contact Us</b> <br><br>
+                <table class="table table-borderless">
                   <tr>
-                    <td style="width:20%;">Address</td>
+                    <td colspan="2" class="text-center">
+                      <?php echo html_entity_decode($_SESSION['setting_hotel_name']) ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" style="width:50%;">Address</td>
                     <td style="color:red;"><?php echo html_entity_decode($_SESSION['setting_hotel_address']) ?></td>   
                   </tr>
-
-
                   <tr>
-                    <td>Email</td>
+                    <td class="text-center">Email</td>
                     <td><a href="mailto:<?php echo html_entity_decode($_SESSION['setting_email']) ?>"><?php echo html_entity_decode($_SESSION['setting_email']) ?></a></td>
                   </tr>
 
                   <tr>
-                    <td>Phone</td>
+                    <td class="text-center">Phone</td>
                     <td><a href="tel:<?php echo html_entity_decode($_SESSION['setting_contact']) ?>"><?php echo html_entity_decode($_SESSION['setting_contact']) ?></a></td>
                   </tr>
 
                   <tr>
-                    <td>Fax</td>
+                    <td class="text-center">Fax</td>
                     <td style="color:red;"><?php echo html_entity_decode($_SESSION['setting_fax']) ?></td>   
                   </tr>
 
                 </table>
-              </div>
+                </div>
+                
+              </div></center>
               <br>
               <div class="small text-center text-muted">
                 <p>&copy; 2021 by RendahTecc Hotel Mangement System | For Educational Porpose Only</p>

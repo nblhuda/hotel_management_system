@@ -33,13 +33,15 @@ while($row = $room->fetch_assoc()){
 								?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
-									<td><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
-									<td class=""><?php echo $room_arr[$row['room_id']]['room'] ?></td>
-									<td><?php echo $row['name'] ?></td>
+									<td ><?php echo $cat_arr[$room_arr[$row['room_id']]['category_id']]['name'] ?></td>
+									<td class="text-center"><?php echo $room_arr[$row['room_id']]['room'] ?></td>
+									<td class="text-center"><?php echo $row['name'] ?></td>
 									<?php if($row['status'] == 1): ?>
 										<td class="text-center"><span class="badge badge-warning">Checked-In</span></td>
-									<?php else: ?>
+									<?php elseif($row['status'] == 2): ?>
 										<td class="text-center"><span class="badge badge-success">Checked-Out</span></td>
+									<?php elseif($row['status'] == 3): ?>
+										<td class="text-center"><span class="badge badge-danger">Canceled</span></td>
 									<?php endif; ?>
 									<td class="text-center">
 											<button class="btn btn-sm btn-primary check_out" type="button" data-id="<?php echo $row['id'] ?>">View</button>
