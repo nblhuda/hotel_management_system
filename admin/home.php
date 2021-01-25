@@ -371,7 +371,7 @@
 					<table class="table">
 						<tbody>
 							<?php 
-							$feedback = $conn->query("SELECT SUM(rate) as 'rate' FROM feedback WHERE rate=4");
+							$feedback = $conn->query("SELECT count(rate) as 'rate' FROM feedback WHERE rate=4");
 							while($row=$feedback->fetch_assoc()):
 							?>
 							<tr>
@@ -385,7 +385,7 @@
 							</tr>							
 							<?php endwhile; ?>
 							<?php 
-							$feedback = $conn->query("SELECT SUM(rate) as 'rate' FROM feedback WHERE rate=3");
+							$feedback = $conn->query("SELECT count(rate) as 'rate' FROM feedback WHERE rate=3");
 							while($row=$feedback->fetch_assoc()):
 							?>
 							<tr>
@@ -399,7 +399,7 @@
 							</tr>							
 							<?php endwhile; ?>
 							<?php 
-							$feedback = $conn->query("SELECT SUM(rate) as 'rate' FROM feedback WHERE rate=2");
+							$feedback = $conn->query("SELECT count(rate) as 'rate' FROM feedback WHERE rate=2");
 							while($row=$feedback->fetch_assoc()):
 							?>
 							<tr>
@@ -414,7 +414,7 @@
 							</tr>							
 							<?php endwhile; ?>
 							<?php 
-							$feedback = $conn->query("SELECT SUM(rate) as 'rate' FROM feedback WHERE rate=1");
+							$feedback = $conn->query("SELECT count(rate) as 'rate' FROM feedback WHERE rate=1");
 							while($row=$feedback->fetch_assoc()):
 							?>
 							<tr>

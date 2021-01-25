@@ -1,6 +1,5 @@
 <?php include('db_connect.php'); ?>
 <div class="container-fluid">
-	
 		<div class="row mt-3">
 			<div class="col-md-12">
 				<div class="card">
@@ -21,8 +20,22 @@
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td style="width:70%"><?php echo $row['feedback'] ?></td>
-									<td  class="text-center"><?php echo $row['rate'] ?></td>
-									<td  class="text-center"><?php echo $row['date_updated'] ?></td>
+									<td class="text-center">
+										<?php
+											$r=$row['rate'];
+											if ($r == "4") {
+												echo "Excellent";
+											}elseif ($r=="3"){
+												echo "Good";
+											}elseif ($r=="2"){
+												echo "Neutral";
+											}elseif ($r=="1"){
+												echo "Poor";
+											}
+										?>
+									</td>
+									
+									<td class="text-center"><?php echo $row['date_updated'] ?></td>
 								</tr>
 							<?php endwhile; ?>
 							</tbody>
