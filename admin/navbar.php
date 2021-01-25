@@ -1,11 +1,6 @@
 
-<style>
-	nav#sidebar {
-    background-repeat: no-repeat;
-	background-size: cover;
-	}
-</style>
-<nav id="sidebar" class='mx-lt-5' >
+
+<nav id="sidebar" class='mx-lt-5'>
 		
 		<div class="sidebar-list">
 
