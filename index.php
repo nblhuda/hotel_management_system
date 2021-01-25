@@ -18,7 +18,8 @@
     	header.masthead {
 		  background: url(assets/img/<?php echo $_SESSION['setting_cover_img'] ?>);
 		  background-repeat: no-repeat;
-		  background-size: cover;
+      background-size: cover;
+      
     }
     
     
