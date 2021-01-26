@@ -10,11 +10,11 @@
                     			<div class="row">
                     				<div class="col-md-3">
                     					<label for="">Check-in Date</label>
-                    					<input type="text" class="form-control datepicker" name="date_in" autocomplete="off">
+                    					<input type="date" class="form-control datepicker" id="date_in" name="date_in" autocomplete="off">
                     				</div>
                     				<div class="col-md-3">
                     					<label for="">Check-out Date</label>
-                    					<input type="text" class="form-control datepicker" name="date_out" autocomplete="off">
+                    					<input type="date" class="form-control datepicker" name="date_out" autocomplete="off">
                     				</div>
                     						
                     				<div class="col-md-3">
@@ -58,3 +58,20 @@
         </div>
     </div>
 </div>
+
+<script>
+let today = new Date(),
+    day = today.getDate(),
+    month = today.getMonth()+1, //January is 0
+    year = today.getFullYear();
+         if(day<10){
+                day='0'+day
+            } 
+        if(month<10){
+            month='0'+month
+        }
+        today = year+'-'+month+'-'+day;
+
+        document.getElementById("date_in").setAttribute("min", today);
+        document.getElementById("date_in").setAttribute("value", today);
+</script>
