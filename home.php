@@ -10,11 +10,11 @@
                     			<div class="row">
                     				<div class="col-md-3">
                     					<label for="">Check-in Date</label>
-                    					<input type="date" class="form-control datepicker" id="date_in" name="date_in" autocomplete="off">
+                    					<input type="date" class="form-control" id="date_in" name="date_in" autocomplete="off">
                     				</div>
                     				<div class="col-md-3">
                     					<label for="">Check-out Date</label>
-                    					<input type="date" class="form-control datepicker" name="date_out" autocomplete="off">
+                    					<input type="date" class="form-control" name="date_out" autocomplete="off">
                     				</div>
                     						
                     				<div class="col-md-3">
@@ -59,7 +59,10 @@
     </div>
 </div>
 
+
+<!-- js function -->
 <script>
+// set minimum date to current date
 let today = new Date(),
     day = today.getDate(),
     month = today.getMonth()+1, //January is 0

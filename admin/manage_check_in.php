@@ -112,6 +112,8 @@ if(isset($_GET['id'])){
 			}
 		})
 	})
+
+	// set minimum date to current date
 	let today = new Date(),
     day = today.getDate(),
     month = today.getMonth()+1, //January is 0
