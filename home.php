@@ -63,20 +63,20 @@
 <!-- js function -->
 <script>
 // set minimum date to current date
-let today = new Date(),
-    day = today.getDate(),
-    month = today.getMonth()+1, //January is 0
-    year = today.getFullYear();
-         if(day<10){
-                day='0'+day
+let todayh = new Date(),
+    dayh = todayh.getDate(),
+    monthh = todayh.getMonth()+1, //January is 0
+    yearh = todayh.getFullYear();
+         if(dayh<10){
+                dayh='0'+dayh
             } 
-        if(month<10){
-            month='0'+month
+        if(monthh<10){
+            monthh='0'+monthh
         }
-        today = year+'-'+month+'-'+day;
+        todayh = yearh+'-'+monthh+'-'+dayh;
 
-        document.getElementById("date_in").setAttribute("min", today);
-        document.getElementById("date_in").setAttribute("value", today);
+        document.getElementById("date_in").setAttribute("min", todayh);
+        document.getElementById("date_in").setAttribute("value", todayh);
         
 // set check out date totommorow
  let tommorow = new Date(),

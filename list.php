@@ -111,18 +111,18 @@
         document.getElementById("date_in").setAttribute("min", today);
         document.getElementById("date_in").setAttribute("value", today);
 // set check out date totommorow
-let tommorow = new Date(),
-    tday = tommorow.getDate()+1,
-    tmonth = tommorow.getMonth()+1, //January is 0
-    tyear = tommorow.getFullYear();
-         if(tday<10){
-                tday='0'+tday
+let ttommorow = new Date(),
+    ttday = ttommorow.getDate()+1,
+    ttmonth = ttommorow.getMonth()+1, //January is 0
+    ttyear = ttommorow.getFullYear();
+         if(ttday<10){
+                ttday='0'+ttday
             } 
-        if(tmonth<10){
-            tmonth='0'+tmonth
+        if(ttmonth<10){
+            ttmonth='0'+ttmonth
         }
-        tommorow = tyear+'-'+tmonth+'-'+tday;
+        ttommorow = ttyear+'-'+ttmonth+'-'+ttday;
 
-        document.getElementById("date_out").setAttribute("min", tommorow);
-        document.getElementById("date_out").setAttribute("value", tommorow);
+        document.getElementById("date_out").setAttribute("min", ttommorow);
+        document.getElementById("date_out").setAttribute("value", ttommorow);
 </script>

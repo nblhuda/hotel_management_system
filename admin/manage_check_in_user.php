@@ -113,18 +113,18 @@ if(isset($_GET['id'])){
 	})
 
 	// set minimum date to current date
-	let today = new Date(),
-    day = today.getDate(),
-    month = today.getMonth()+1, //January is 0
-    year = today.getFullYear();
+	let todayt = new Date(),
+    dayt = todayt.getDate(),
+    montht = todayt.getMonth()+1, //January is 0
+    yeart = todayt.getFullYear();
          if(day<10){
-                day='0'+day
+                dayt='0'+dayt
             } 
-        if(month<10){
-            month='0'+month
+        if(montht<10){
+            montht='0'+montht
         }
-        today = year+'-'+month+'-'+day;
+        todayt = yeart+'-'+montht+'-'+dayt;
 
-        document.getElementById("date_in").setAttribute("min", today);
-        document.getElementById("date_in").setAttribute("value", today);
+        document.getElementById("date_in").setAttribute("min", todayt);
+        document.getElementById("date_in").setAttribute("value", todayt);
 </script>

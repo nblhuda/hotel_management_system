@@ -169,7 +169,7 @@ Class Action {
 		$data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
 		$out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
 		$data .= ", date_out = '$out' ";		
-		$data .= ", status = '$status' ";
+		$data .= ", status = 0 ";
 
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO checked set ".$data);			
