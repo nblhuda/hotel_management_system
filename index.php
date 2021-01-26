@@ -169,6 +169,7 @@ window.alert_toast= function($msg = 'TEST',$bg = 'success'){
         $(this).remove();
       })
   })
+
     </script>
     <?php $conn->close() ?>
 
