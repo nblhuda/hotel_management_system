@@ -30,7 +30,7 @@
 			        		</div>
 			        		<div class="col-md-3">
 			        			<label for="">Check-out Date</label>
-			        			<input type="date" class="form-control" name="date_out" autocomplete="off" value="<?php echo isset($date_out) ? date("Y-m-d",strtotime($date_out)) : "" ?>">
+			        			<input type="date" class="form-control" id="date_out"name="date_out" autocomplete="off" value="<?php echo isset($date_out) ? date("Y-m-d",strtotime($date_out)) : "" ?>">
 			        		</div>
 			        		<div class="col-md-3">
 			        			<br>
@@ -110,4 +110,19 @@
 
         document.getElementById("date_in").setAttribute("min", today);
         document.getElementById("date_in").setAttribute("value", today);
+// set check out date totommorow
+let tommorow = new Date(),
+    tday = tommorow.getDate()+1,
+    tmonth = tommorow.getMonth()+1, //January is 0
+    tyear = tommorow.getFullYear();
+         if(tday<10){
+                tday='0'+tday
+            } 
+        if(tmonth<10){
+            tmonth='0'+tmonth
+        }
+        tommorow = tyear+'-'+tmonth+'-'+tday;
+
+        document.getElementById("date_out").setAttribute("min", tommorow);
+        document.getElementById("date_out").setAttribute("value", tommorow);
 </script>
