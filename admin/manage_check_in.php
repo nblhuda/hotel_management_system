@@ -62,7 +62,7 @@ if(isset($_GET['id'])){
 		</div>
 		<div class="form-group">
 			<label for="date_in_time">Check-in Time</label>
-			<input type="time" name="date_in_time" id="date_in_time" class="form-control" value="<?php echo isset($meta['date_in']) ? date("H:i",strtotime($meta['date_in'])): date("H:i") ?>" required>
+			<input type="time" min="12:00" max="16:00" name="date_in_time" id="date_in_time" class="form-control" value="<?php echo isset($meta['date_in']) ? date("H:i",strtotime($meta['date_in'])): date("H:i") ?>" required>
 		</div>
 		<div class="form-group">
 			<label for="days">Days of Stay</label>

@@ -84,17 +84,18 @@ if($_GET['id']){
 				<div class="col-md-3">
 					<button type="button" class="btn btn-primary edit_checkin" >Edit</button>
 				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-danger cancel_checkin" >Cancel</button>
+				</div>
 			<?php elseif(isset($_GET['checkout']) && $status == 1): ?>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-primary checkout" >Checkout</button>
 				</div>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-primary edit_checkin" >Edit</button>
-				</div>				
+				</div>	
 		<?php endif; ?>	
-				<div class="col-md-3">
-					<button type="button" class="btn btn-danger cancel_checkin" >Cancel</button>
-				</div>
+				
 				<div class="col-md-3">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				</div>
@@ -116,7 +117,7 @@ if($_GET['id']){
 			data:{id:'<?php echo $id ?>',rid:'<?php echo $room_id ?>'},
 			success:function(resp){
 				if(resp ==1){
-					alert_toast("Data successfully saved",'success')
+					alert_toast("Checkout Successfully",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
@@ -149,7 +150,7 @@ if($_GET['id']){
 			success:function(resp){
 				console.log(resp)
 				if(resp ==1){
-					alert_toast("Data successfully saved",'success')
+					alert_toast("Booking canceled",'success')
 					setTimeout(function(){
 						
 						location.reload()
