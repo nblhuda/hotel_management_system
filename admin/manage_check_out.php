@@ -85,7 +85,7 @@ if($_GET['id']){
 					<button type="button" class="btn btn-primary edit_checkin" >Edit</button>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-danger cancel_checkin" >Cancel</button>
+					<button type="button" class="btn btn-danger cancel_checkin" >Cancel Booking</button>
 				</div>
 			<?php elseif(isset($_GET['checkout']) && $status == 1): ?>
 				<div class="col-md-3">
