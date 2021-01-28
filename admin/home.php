@@ -93,7 +93,7 @@
  
 </style>
 
-<div class="containe-fluid">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="card col-md-4 offset-2 bg-info float-left">
@@ -130,7 +130,7 @@
 	
 	<!--SPLIT STATISTIC-->
 	<div class="row mt-3 ml-3 mr-3">
-		<!--SPLIT 1 : STAT-->
+		<!--SPLIT 1 : STATISTIC SECTION-->
 		<div class="col-lg-9">
 			<!--CUSTOMER STATISTIC-->
 			<div class="col-lg-12">
@@ -342,8 +342,8 @@
 				<!--OVERVIEW END-->			
 			</div>
 		</div>
-		<!--SPLIT 1 : STAT END-->
-		<!--SPLIT 2 : RATING-->
+		<!--SPLIT 1 : STATISTIC SECTION END-->
+		<!--SPLIT 2 : RATING SECTION-->
 		<div class="col-lg-3"><center>
 			<br>
 			<!--RATING-->
@@ -376,7 +376,7 @@
 							?>
 							<tr>
 								<td><i class="fa fa-star" style="color: #f5bf42"></td>
-								<td style="width:70%"> Excellent</td>
+								<td style="width:100%"> Excellent</td>
 								<?php if(!empty($row)):?>
 								<td><?php echo $row['rate'] ?></td>
 								<?php else:?>

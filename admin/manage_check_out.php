@@ -79,7 +79,7 @@ if($_GET['id']){
 		<div class="row">
 			<?php if(isset($_GET['checkout']) && $status == 0): ?>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary checkin" >Checkin</button>
+					<button type="button" class="btn btn-primary checkin" >Check-in</button>
 				</div>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-primary edit_checkin" >Edit</button>
@@ -106,9 +106,13 @@ if($_GET['id']){
 	$(document).ready(function(){
 		
 	})
+
+	//Update Booking Information to Database
 	$('.edit_checkin').click(function(){
 		uni_modal("Edit Check In","manage_check_in.php?id=<?php echo $id ?>&rid=<?php echo $room_id ?>")
 	})
+
+	//Update Status to Check-Out into Database
 	$('.checkout').click(function(){
 		start_load()
 		$.ajax({
@@ -125,6 +129,8 @@ if($_GET['id']){
 			}
 		})
 	})
+
+	//Update Status to Check-In into Database
 	$('.checkin').click(function(){
 		start_load()
 		$.ajax({
@@ -141,6 +147,8 @@ if($_GET['id']){
 			}
 		})
 	})
+
+	//Update Status to Cancel Booking into Database
 	$('.cancel_checkin').click(function(){
 		start_load()
 		$.ajax({
