@@ -70,9 +70,7 @@ if(isset($_GET['id'])){
 		</div>
 		<div class="form-group">
 			<label for="status" class="control-label">Status</label>
-			<select class="custom-select browser-default" name="status" id="status">
-				<option value="0">Booking</option>
-			</select>			
+			<input class="form-control" name="status" id="status" placeholder="Booking" value="Booking" readonly="readonly">						
 		</div>
 		<div class="card-footer">
 			<div class="row">
