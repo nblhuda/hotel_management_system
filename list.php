@@ -44,8 +44,10 @@
 
 			<hr>	
 			<?php 
+			//Count available room (Status = 0)
 			$sql = $conn->query("SELECT COUNT('id') as count FROM rooms where status = 0");
 			while($counta = $sql->fetch_assoc()){
+				// If there is available room (Count > 0)
 				if($counta['count'] > 0){
 					// select data from room categories
 					$cat = $conn->query("SELECT * FROM room_categories");

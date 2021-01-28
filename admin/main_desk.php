@@ -86,12 +86,14 @@
 </div>
 
 <script>
+	//Open Modal for Check-In Form
 	$('table').dataTable()
 	$('.check_in').click(function(){
 		uni_modal("Check In","manage_check_in.php?rid="+$(this).attr("data-id"))
 	})
+	//Filter List by Category
 	$('#filter').submit(function(e){
 		e.preventDefault()
-		location.replace('index.php?page=check_in&category_id='+$(this).find('[name="category_id"]').val()+'&status='+$(this).find('[name="status"]').val())
+		location.replace('index.php?page=main_desk&category_id='+$(this).find('[name="category_id"]').val()+'&status='+$(this).find('[name="status"]').val())
 	})
 </script>

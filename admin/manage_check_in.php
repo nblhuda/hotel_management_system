@@ -88,7 +88,7 @@ if(isset($_GET['id'])){
 <!-- js function -->
 <script>
 	
-	// save the data to database function
+	// Save the Booking details to database
 	$('#manage-check').submit(function(e){
 		e.preventDefault()
 		start_load()		
@@ -113,7 +113,7 @@ if(isset($_GET['id'])){
 		})
 	})
 
-	// set minimum date to current date
+	// Set minimum date to current date
 	let today = new Date(),
     day = today.getDate(),
     month = today.getMonth()+1, //January is 0

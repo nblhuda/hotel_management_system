@@ -103,6 +103,7 @@
 </div>
 
 <script>
+	//Add Room into Database
 	$('#manage-room').submit(function(e){
 		e.preventDefault()
 		start_load()
@@ -128,6 +129,8 @@
 			}
 		})
 	})
+
+	//Update Room into Database
 	$('.edit_cat').click(function(){
 		start_load()
 		var cat = $('#manage-room')
@@ -138,9 +141,13 @@
 		cat.find("[name='status']").val($(this).attr('data-status'))
 		end_load()
 	})
+
+	//Delete Confirmation Box
 	$('.delete_cat').click(function(){
 		_conf("Are you sure to delete this room?","delete_cat",[$(this).attr('data-id')])
 	})
+
+	//Delete Room from Database
 	function delete_cat($id){
 		start_load()
 		$.ajax({

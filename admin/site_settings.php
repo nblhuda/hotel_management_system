@@ -58,18 +58,20 @@ if($qry->num_rows > 0){
 </style>
 
 <script>
+	//Display Image in form
 	function displayImg(input,_this) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-        	$('#cimg').attr('src', e.target.result);
-        }
+    	if (input.files && input.files[0]) {
+        	var reader = new FileReader();
+        	reader.onload = function (e) {
+        		$('#cimg').attr('src', e.target.result);
+        	}
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+        	reader.readAsDataURL(input.files[0]);
+    	}
+	}
 	$('.text-jqte').jqte();
 
+	//Save Site-Setting into Database
 	$('#manage-settings').submit(function(e){
 		e.preventDefault()
 		start_load()
@@ -86,7 +88,7 @@ if($qry->num_rows > 0){
 			},
 			success:function(resp){
 				if(resp == 1){
-					alert_toast('Data successfully saved.','success')
+					alert_toast('Site-Settings successfully saved.','success')
 					setTimeout(function(){
 						location.reload()
 					},1000)

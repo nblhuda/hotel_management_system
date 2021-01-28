@@ -33,6 +33,7 @@ foreach($user->fetch_array() as $k =>$v){
 	</form>
 </div>
 <script>
+	//Add / Update User Information
 	$('#manage-user').submit(function(e){
 		e.preventDefault();
 		start_load()

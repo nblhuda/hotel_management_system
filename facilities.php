@@ -18,7 +18,7 @@
             <?php 
 				include'admin/db_connect.php';
                 // select data from room facilities table
-                // check the condition, it will display if status = 0
+                // check the condition, it will display if status = 0 (Available)
                 $qry = $conn->query("SELECT * FROM  facilities where status = 0 ");
                 while($row = $qry->fetch_assoc()):
             ?>

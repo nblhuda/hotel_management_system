@@ -131,6 +131,7 @@
 
 <!-- js function -->
 <script>
+	//Display Uploaded Image on Form
 	function displayImg(input,_this) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
@@ -141,6 +142,7 @@
 	        reader.readAsDataURL(input.files[0]);
 	    }
 	}
+	//Save Room Category Detail into database
 	$('#manage-category').submit(function(e){
 		e.preventDefault()
 		start_load()
@@ -170,7 +172,8 @@
 			}
 		})
 	})
-	// edit function
+	
+	// Update Room Category from database
 	$('.edit_cat').click(function(){
 		start_load()
 		var cat = $('#manage-category')
@@ -184,12 +187,12 @@
 		end_load()
 	})
 
-	// delete confirmation
+	// Delete Confirmation Box
 	$('.delete_cat').click(function(){
 		_conf("Are you sure to delete this category?","delete_cat",[$(this).attr('data-id')])
 	})
 
-	// delete function
+	// Delete Room category Funtion from database
 	function delete_cat($id){
 		start_load()
 		$.ajax({

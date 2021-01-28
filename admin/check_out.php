@@ -59,9 +59,11 @@ while($row = $room->fetch_assoc()){
 
 <script>
 	$('table').dataTable()
+	//Open Check-Out Details
 	$('.check_out').click(function(){
 		uni_modal("Check Out","manage_check_out.php?checkout=1&id="+$(this).attr("data-id"))
 	})
+	//Filter According to Searching
 	$('#filter').submit(function(e){
 		e.preventDefault()
 		location.replace('index.php?page=check_in&category_id='+$(this).find('[name="category_id"]').val()+'&status='+$(this).find('[name="status"]').val())

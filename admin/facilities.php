@@ -125,7 +125,7 @@
 
 <!-- js function -->
 <script>
-	// display img in the form
+	// Display Image in the form
 	function displayImg(input,_this) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
@@ -137,7 +137,7 @@
 	    }
 	}
 
-	// save the data to database function
+	// Save the facilitiy data into database 
 	$('#manage-facility').submit(function(e){
 		e.preventDefault()
 		start_load()
@@ -168,7 +168,7 @@
 		})
 	})
 	
-	// edit data function
+	// Update facility data function
 	$('.edit_cat').click(function(){
 		start_load()
 		var cat = $('#manage-facility')
@@ -180,12 +180,12 @@
 		end_load()
 	})
 
-	// delete confirmation
+	// Delete confirmation box
 	$('.delete_cat').click(function(){
 		_conf("Are you sure to delete this facility?","delete_cat",[$(this).attr('data-id')])
 	})
 
-	// delete function
+	// Delete facility from database function
 	function delete_cat($id){
 		start_load()
 		$.ajax({

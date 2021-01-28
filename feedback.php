@@ -151,7 +151,7 @@
 <!-- js function -->
 <script>
 	
-	// save the data to database function
+	// save the feedback in database function
 	$('#manage-feedback').submit(function(e){
 		e.preventDefault()
 		start_load()		

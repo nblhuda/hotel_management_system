@@ -64,33 +64,35 @@
 
 </div>
 <script>
-	
+	//Open Add User Form
 	$('#new_user').click(function(){
 		uni_modal('New User','manage_user.php')
 	})
+	//Open Edit User Form
 	$('.edit_user').click(function(){
 		uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
 	})
-
+	//Delete Confirmation Box
 	$('.delete_cat').click(function(){
 		_conf("Are you sure to delete this user?","delete_cat",[$(this).attr('data-id')])
 	})
-		function delete_cat($id){
-			start_load()
-			$.ajax({
-				url:'ajax.php?action=delete_user',
-				method:'POST',
-				data:{id:$id},
-				success:function(resp){
-					if(resp==1){
-						alert_toast("User successfully deleted",'success')
-						setTimeout(function(){
-							location.reload()
-						},1500)
+	//Delete User From Database
+	function delete_cat($id){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=delete_user',
+			method:'POST',
+			data:{id:$id},
+			success:function(resp){
+				if(resp==1){
+					alert_toast("User successfully deleted",'success')
+					setTimeout(function(){
+						location.reload()
+					},1500)
 
-					}
 				}
-			})
-		}
+			}
+		})
+	}
 
 </script>
