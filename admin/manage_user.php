@@ -12,7 +12,7 @@ foreach($user->fetch_array() as $k =>$v){
 	<form action="" id="manage-user">
 		<input type="hidden" name="id" value="<?php echo isset($meta['id']) ? $meta['id']: '' ?>">
 		<div class="form-group">
-			<label for="name">Name</label>
+			<label for="name">Department</label>
 			<input type="text" name="name" id="name" class="form-control" value="<?php echo isset($meta['name']) ? $meta['name']: '' ?>" required>
 		</div>
 		<div class="form-group">
@@ -43,7 +43,7 @@ foreach($user->fetch_array() as $k =>$v){
 			data:$(this).serialize(),
 			success:function(resp){
 				if(resp ==1){
-					alert_toast("User successfully added",'success')
+					alert_toast("Staff successfully added",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

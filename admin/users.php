@@ -6,7 +6,7 @@
 	
 	<div class="row">
 	<div class="col-lg-12">
-			<button class="btn btn-primary float-right btn-sm" id="new_user"><i class="fa fa-plus"></i> New user</button>
+			<button class="btn btn-primary float-right btn-sm" id="new_user"><i class="fa fa-plus"></i> New Staff</button>
 	</div>
 	</div>
 	<br>
@@ -66,15 +66,15 @@
 <script>
 	//Open Add User Form
 	$('#new_user').click(function(){
-		uni_modal('New User','manage_user.php')
+		uni_modal('New Staff','manage_user.php')
 	})
 	//Open Edit User Form
 	$('.edit_user').click(function(){
-		uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
+		uni_modal('Edit Staff','manage_user.php?id='+$(this).attr('data-id'))
 	})
 	//Delete Confirmation Box
 	$('.delete_cat').click(function(){
-		_conf("Are you sure to delete this user?","delete_cat",[$(this).attr('data-id')])
+		_conf("Are you sure to delete this staff?","delete_cat",[$(this).attr('data-id')])
 	})
 	//Delete User From Database
 	function delete_cat($id){
@@ -85,7 +85,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("User successfully deleted",'success')
+					alert_toast("Staff successfully deleted",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

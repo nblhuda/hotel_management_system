@@ -156,7 +156,7 @@
 		    type: 'POST',
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully added",'success')
+					alert_toast("Room category successfully added",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
@@ -203,7 +203,7 @@
 			success:function(resp){
 				if(resp==1){
 					// display toast message that data is successfully deleted
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Room category successfully deleted",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

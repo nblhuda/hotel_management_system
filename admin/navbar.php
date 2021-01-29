@@ -26,7 +26,7 @@
 				<?php if($_SESSION['login_type'] == 1): ?>
 				<a href="index.php?page=site_settings" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cogs"></i></span> Site Settings</a>
 				<a href="index.php?page=feedback" class="nav-item nav-feedback"><span class='icon-field'><i class="fa  fa-comments"></i></span>Feedback</a>
-				<a href="index.php?page=users" class="nav-item nav-users"><span class='icon-field'><i class="fa fa-users"></i></span> Users</a>							
+				<a href="index.php?page=users" class="nav-item nav-users"><span class='icon-field'><i class="fa fa-users"></i></span>Organisation</a>							
 			<?php endif; ?>
 		</div>
 

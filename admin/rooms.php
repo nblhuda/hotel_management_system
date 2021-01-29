@@ -113,14 +113,14 @@
 			data: $(this).serialize(),
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully added",'success')
+					alert_toast("Room successfully added",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
 
 				}
 				else if(resp==2){
-					alert_toast("Data successfully updated",'success')
+					alert_toast("Room successfully updated",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
@@ -156,7 +156,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Room successfully deleted",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
