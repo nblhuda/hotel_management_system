@@ -1,3 +1,5 @@
+<!-- for the page to display all customers who canceled the booking and already checkout to the hotel 
+[status of table checked is not equal to 0 for and 1] -->
 <?php include('db_connect.php'); 
 $cat = $conn->query("SELECT * FROM room_categories");
 $cat_arr = array();

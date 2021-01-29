@@ -1,3 +1,5 @@
+<!-- home page for admin and staff -->
+
 <?php
 	include('db_connect.php');
 ?>

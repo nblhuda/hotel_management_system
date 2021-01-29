@@ -1,3 +1,4 @@
+<!-- this is the page to display all the available rooms for customer to book or check-in -->
 <?php include('db_connect.php'); ?>
 <div class="container-fluid">
 	<div class="col-lg-12">

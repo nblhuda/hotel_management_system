@@ -1,3 +1,4 @@
+<!-- login page for admin and staff -->
 <!DOCTYPE html>
 <html lang="en">
 	<head>

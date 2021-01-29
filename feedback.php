@@ -1,3 +1,5 @@
+<!-- feedback form for customers to give feedback of rendahtecc hotel -->
+
 <html>
     <head>
     <style>    

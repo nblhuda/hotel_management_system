@@ -1,3 +1,5 @@
+<!-- to display all the available facilities in the rendahtecc hotel -->
+
 <!-- Masthead-->
 <header class="masthead">
     <div class="container h-100">

@@ -1,3 +1,4 @@
+<!-- the form when the user click on the 'book now' button to book the room -->
 <?php 
 include('db_connect.php');
 	$rid = $_GET['rid'];

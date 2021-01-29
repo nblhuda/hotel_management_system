@@ -1,3 +1,4 @@
+<!-- for the page where display all customers that already checkin to the hotel [status of table checked is 1] -->
 <?php include('db_connect.php'); 
 $cat = $conn->query("SELECT * FROM room_categories");
 $cat_arr = array();
@@ -40,7 +41,7 @@ while($row = $room->fetch_assoc()){
 										<td class="text-center"><span class="badge badge-warning">Check in</span></td>
 									<td class="text-center"><?php echo $row['date_updated'] ?></td>
 									<td class="text-center">
-											<button class="btn btn-sm btn-primary check_out" type="button" data-id="<?php echo $row['id'] ?>">View</button>
+										<button class="btn btn-sm btn-primary check_out" type="button" data-id="<?php echo $row['id'] ?>">View</button>
 									</td>
 								</tr>
 							<?php endwhile; ?>

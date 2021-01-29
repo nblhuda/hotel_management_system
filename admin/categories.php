@@ -1,3 +1,5 @@
+<!-- this is the page where admin can add the categories and it will display the categories that available in this hotel -->
+
 <?php include('db_connect.php');?>
 
 <div class="container-fluid">
@@ -48,11 +50,13 @@
 								</div>
 						</div>
 						
-						<!-- save or cancel button -->
+						<!-- save and cancel button -->
 						<div class="card-footer">
 							<div class="row">
 								<div class="col-md-12">
+									<!-- save button -->
 									<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Save</button>
+									<!-- cancel button -->
 									<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="$('#manage-category').get(0).reset()"> Cancel</button>
 								</div>
 							</div>

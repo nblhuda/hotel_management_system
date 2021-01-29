@@ -1,3 +1,4 @@
+<!-- to display feedback from customers -->
 <?php include('db_connect.php'); ?>
 <div class="container-fluid">
 		<div class="row mt-3">

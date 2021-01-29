@@ -1,3 +1,4 @@
+<!-- the page to add, edit and delete facilities -->
 <?php include('db_connect.php');?>
  
 <div class="container-fluid">

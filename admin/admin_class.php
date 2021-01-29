@@ -38,6 +38,7 @@ Class Action {
 		header("location:login.php");
 	}
 
+	// save the staff details into users database
 	function save_user(){
 		extract($_POST);
 		$data = " name = '$name' ";
@@ -54,6 +55,7 @@ Class Action {
 		}
 	}
 
+	// to save all the site setting details into system_settings database
 	function save_settings(){
 		extract($_POST);
 		$data = " hotel_name = '$name' ";
@@ -87,6 +89,7 @@ Class Action {
 				}
 	}
 
+	// to save all the room categories into room_categories database
 	function save_category(){
 		extract($_POST);
 		$data = " name = '$name' ";
@@ -107,12 +110,16 @@ Class Action {
 		if($save)
 			return 1;
 	}
+
+	// to delete room category from room_categories database
 	function delete_category(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM room_categories where id = ".$id);
 		if($delete)
 			return 1;
 	}
+
+	// insert the room data to the database [rooms]
 	function save_room(){
 		extract($_POST);
 		$data = " room = '$room' ";
@@ -127,6 +134,7 @@ Class Action {
 			return 1;
 	}
 
+	// delete the data from database [rooms]
 	function delete_room(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM rooms where id = ".$id);
@@ -161,6 +169,7 @@ Class Action {
 			return 1;
 	}
 	
+	// insert the customers data to the database when they want to book or check-in to the hotel [checked]
 	function save_check_in(){		
 		extract($_POST);
 		$data = " room_id = '$rid' ";
@@ -183,6 +192,7 @@ Class Action {
 		}
 	}
 
+	//set the status to 1 if the customer want to check-in [checked]
 	function save_checkin(){
 		extract($_POST);
 			$save = $this->db->query("UPDATE checked set status = 1 where id=".$id);
@@ -190,6 +200,8 @@ Class Action {
 				return 1;
 			}
 	}
+
+	//set the status to 2 if the customer want to check-out [checked]
 	function save_checkout(){
 		extract($_POST);
 			$save = $this->db->query("UPDATE checked set status = 2 where id=".$id);
@@ -199,6 +211,8 @@ Class Action {
 						return 1;
 			}
 	}
+
+	//change the status set to 3 from database [checked]
 	function cancel_check_in(){
 		extract($_POST);
 			$save = $this->db->query("UPDATE checked set status = 3 where id=".$id);
@@ -235,6 +249,7 @@ Class Action {
 		}
 	}
 
+	//insert the feedback details into the database [feedback]
 	function save_feedback(){
 		extract($_POST);
 		$data = " rate = '$rate' ";

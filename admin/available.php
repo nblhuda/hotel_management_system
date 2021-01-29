@@ -1,3 +1,4 @@
+<!-- the page where it will display all the available rooms available by each category in for user to book ke room -->
 <?php
 include('db_connect.php');
 $cid = $_GET['cid'];

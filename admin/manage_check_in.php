@@ -1,3 +1,4 @@
+<!-- the form when the admin or staff click on the 'check-in' button to book the room -->
 <?php 
 include('db_connect.php');
 	$rid = $_GET['rid'];
